@@ -2,7 +2,7 @@ import axios from 'axios';
 
 const handler = async (m, { conn, text }) => {
   if (!text) {
-    conn.reply(m.chat, `⚠️ Te faltó el texto para usar *MayCode*`, m);
+    conn.reply(m.chat, `⚠️ Te faltó el texto para usar *MayCode*, Usa --v2 Si Quieres usar el Modelo V2. Usa --v1 Si quieres usar el modelo V1.`, m);
     return;
   }
 
