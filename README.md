@@ -1,51 +1,53 @@
-<h1 align="center">✦ Yυƙι-Sυσυ-Bσƚ ✦</h1>
+<h1 align="center">⊹˚₊ MaycolAIUltraMD ₊˚⊹</h1>
 
- <img src= "https://files.catbox.moe/om9jai.jpg">
+ <img src= "https://files.catbox.moe/8iqvp8.gif">
     </p>
 
-### **`❕️ Información importante`**
+### **`⚡ Información importante`**
 
 <details>
- <summary><b> ➮ Info • Bot</b></summary>
+ <summary><b>📱 Acerca del Bot</b></summary>
 
-* Este proyecto **no está afiliado de ninguna manera** con `WhatsApp`, `Inc. WhatsApp` es una marca registrada de `WhatsApp LLC`, y este bot es un **desarrollo independiente** que **no tiene ninguna relación oficial con la compañía**.
+* Este proyecto **no está afiliado de ninguna manera** con `WhatsApp`, `Inc. WhatsApp` es una marca registrada de `WhatsApp LLC`.
+* MaycolAIUltraMD es un **desarrollo independiente** creado con pasión y dedicación que **no tiene ninguna relación oficial con la compañía**.
+* Este bot fue creado y desarrollado completamente de forma individual.
 </details>
 
 <details>
- <summary><b> ➮ Funciones</b></summary>
+ <summary><b>✨ Características</b></summary>
 
-> Bot en desarrollo si presenta alguna falla reportar al creador para darle una solución óptima.
+> MaycolAIUltraMD está en constante evolución. Si encuentras algún error, por favor reportalo para brindarte una solución rápida.
 
-- [x] Interacción con voz y texto
-- [x] Configuración de grupo
-- [x] antidelete, antilink, antispam, etc
-- [x] Bienvenida personalizada
-- [x] Juegos, tictactoe, mate, etc
-- [x] Chatbot (simsimi)
-- [x] Chatbot (autoresponder)
-- [x] Crear sticker de image/video/gif/url
-- [x] SubBot (Jadibot)
-- [x] Buscador Google
-- [x] Juego RPG
-- [x] Personalizar imagen del menú
-- [x] Descarga de música y video De YT
-- [ ] Otros
+- [x] Interacción con voz y texto al estilo anime
+- [x] Configuración personalizada para grupos
+- [x] Protección avanzada: antidelete, antilink, antispam, etc
+- [x] Mensajes de bienvenida con temática anime
+- [x] Mini-juegos interactivos: tictactoe, matemáticas, trivia anime
+- [x] Chatbot con personalidad (simsimi)
+- [x] Respuestas automáticas personalizables
+- [x] Creación de stickers de image/video/gif/url
+- [x] SubBot (Jadibot) multidispositivo
+- [x] Buscador Google optimizado
+- [x] Sistema RPG con temática anime
+- [x] Personalización completa de menús e interfaces
+- [x] Descarga de música y video de múltiples plataformas
+- [ ] Más funciones próximamente...
 
 </details>
 
 ---
 
-### **`✧ Click en la imagen para descargar termux ✧`**
+### **`🌸 Click en la imagen para descargar termux 🌸`**
 <a
-href="https://www.mediafire.com/file/llugt4zgj7g3n3u/com.termux_1020.apk/file"><img src="https://qu.ax/finc.jpg" height="125px"></a> 
+href="https://www.mediafire.com/file/llugt4zgj7g3n3u/com.termux_1020.apk/file"><img src="https://files.catbox.moe/ayy4am.gif" height="125px"></a> 
 
-### **`➮ Instalación por termux`**
+### **`📲 Instalación por termux`**
 
 <details>
- <summary><b> ✎ Click para ver los Comandos </b></summary>
+ <summary><b>📝 Click para ver los Comandos </b></summary>
 
-### **❀ Instalación manual por termux**
-> Nota: Copie y pegue los comandos en termux uno por uno.
+### **💮 Instalación manual por termux**
+> Nota: Copia y pega los comandos en termux uno por uno.
 ```bash
 termux-setup-storage
 ```
@@ -55,7 +57,7 @@ apt update && apt upgrade && pkg install -y git nodejs ffmpeg imagemagick yarn
 ```
 
 ```bash
-git clone https://github.com/The-King-Destroy/Yuki_Suou-Bot && cd Yuki_Suou-Bot
+git clone https://github.com/SoySapo6/MaycolAIUltra && cd MaycolAIUltra
 ```
 
 ```bash
@@ -74,16 +76,16 @@ npm update
 npm start
 ```
 
-> Si aparece (Y/I/N/O/D/Z) [default=N] ? use la letra "y" + "ENTER" para continuar con la instalación
+> Si aparece (Y/I/N/O/D/Z) [default=N] ? usa la letra "y" + "ENTER" para continuar con la instalación
 
-### **🜸 Activar en caso de detenerse en termux**
+### **🔮 Activar en caso de detenerse en termux**
 
 > Si después de instalar el bot en Termux se detiene (pantalla en blanco, pérdida de conexión a Internet, reinicio del dispositivo), sigue estos pasos:
 
 ❒ Abre Termux y navega al directorio del bot:
    
    ```bash
-    cd Yuki_Suou-Bot
+    cd MaycolAIUltra
    ```
 
 ❒ Inicia el bot nuevamente:
@@ -92,70 +94,73 @@ npm start
     npm start
    ```
 
-### **✰ Volverte owner del Bot**
+### **⭐ Volverte owner del Bot**
 
-> Si después de instalar el bot en Termux y iniciar la session del bot (deseas poner tu número es la lista de owner pon este comando:
+> Si deseas agregar tu número como owner del bot:
 
    ```bash
-    cd Yuki_Suou-Bot && nano settings.js
+    cd MaycolAIUltra && nano settings.js
    ```
 
 </details>
 
 ---
-### **`➮ Enlaces útiles`**
+### **`🌟 Enlaces útiles`**
 
 <details>
- <summary><b> 🜸 Enlaces Oficiales </b></summary>
+ <summary><b>🔮 Enlaces Oficiales </b></summary>
 
- * Canal Oficial  [`¡Click aquí!`](https://whatsapp.com/channel/0029VbAfPu9BqbrEMFWXKE0d)
-* Grupo Oficial [`¡Click aquí!`](https://chat.whatsapp.com/CDw7hpI30WjCyKFAVLHNhZ)
-* Comunidad Oficial [`¡Click aquí!`](https://chat.whatsapp.com/I0dMp2fEle7L6RaWBmwlAa)
+ * Canal Oficial  [`¡Click aquí!`](https://whatsapp.com/channel/0029VayXJte65yD6LQGiRB0R)
+* Grupo Oficial [`¡Click aquí!`](https://chat.whatsapp.com/EprzCjr7XFyAIFr9OfBh2o)
+* Comunidad Oficial [`¡Click aquí!`](https://chat.whatsapp.com/KqkJwla1aq1LgaPiuFFtEY)
 </details>
 
 <details>
-<summary><b> ✰ Contáctos</b></summary>
+<summary><b>📞 Contacto</b></summary>
 
-* WhatsApp: [`Aquí`](https:/Wa.me/5212202410659)
-* Correo: [`Aquí`](thekingdestroy507@gmail.com)
+* WhatsApp: [`Aquí`](https:/Wa.me/51921826291)
+
+</details>
+
+---
+# 🌃 NightAPI 🌌
+Integrado con NightAPI
+
+<p align="center">
+  <img src="https://files.catbox.moe/0wjz52.png" width="500">
+</p>
+
+<details>
+ <summary><b>🔮 Enlaces Oficiales </b></summary>
+
+ * Pagina Web  [`¡Click aquí!`](https://nightapioficial.onrender.com/)
+   
+</details>
+
+<details>
+<summary><b>📞 Contacto</b></summary>
+
+* WhatsApp: [`Aquí`](https:/Wa.me/51921826291)
+
+</details>
+
+<details>
+<summary><b>💻 Funciones</b></summary>
+
+<p align="center">
+  <img src="https://files.catbox.moe/mtqu28.png" width="500">
+</p>
 
 </details>
 
 ---
 
-### **`✧ SKY-ULTRA-PLUS ✧`**
-
+### **`🌈 Desarrollador`**
 <a
-href="https://dash.skyultraplus.com/home"><img src="https://qu.ax/zFzXF.png" height="125px"></a>
+href="https://github.com/SoySapo6"><img src="https://github.com/SoySapo6.png" width="130" height="130" alt="SoySapo6"/></a>
 
-<details>
- <summary><b> ❒ Servidor Sky-Ultra-Plus</b></summary>
-
-* Dashboard  [`Dash`](https://dash.skyultraplus.com)
-* Panel [`Panel`](https://panel.skyultraplus.com)
-* Canal de WhatsApp [`Canal Sky`](https://whatsapp.com/channel/0029VakUvreFHWpyWUr4Jr0g)
-* Comunidad  [`Aquí`](https://chat.whatsapp.com/JPwcXvPEUwlEOyjI3BpYys)
-* Contacto(s) [`Gata Dios`](https://wa.me/message/B3KTM5XN2JMRD1) / [`Russell`](https://api.whatsapp.com/send/?phone=15167096032&text&type=phone_number&app_absent=0) / [`elrebelde21`](https://facebook.com/elrebelde21)
-* Discord [`SkyUltraPlus`](https://discord.gg/Ph4eWsZ8)
-
-</details>
-
----
-
-### **`❀ Colaboradores`**
-<a href="https://github.com/The-King-Destroy/Yuki_Suou-Bot/graphs/contributors">
-<img src="https://contrib.rocks/image?repo=The-King-Destroy/Yuki_Suou-Bot" /> 
-</a>
-
-### **`ᥫ᭡ Propietario`**
-<a
-href="https://github.com/The-King-Destroy"><img src="https://github.com/The-King-Destroy.png" width="130" height="130" alt="
-ⁱᵃᵐ|𝔇ĕ𝐬†𝓻⊙γ𒆜"/></a>
-
-### **`🜸 Créditos`**
-<a href="https://github.com/DevAlexJs" style="display:inline-block; text-decoration: none;">
-    <img src="https://github.com/DevAlexJs.png" width="130" height="130" alt="Alex-X" style="border-radius: 50%;"/>
-</a>
-<a href="https://github.com/David-Chian" style="display:inline-block; margin-right: 10px; text-decoration: none;">
-    <img src="https://github.com/David-Chian.png" width="130" height="130" alt="David-Chian" style="border-radius: 50%;"/>
-</a>
+<p align="center">
+  <img src="[https://files.catbox.moe/csibjp.gif](https://files.catbox.moe/csibjp.gif)" width="500">
+  <br>
+  <i>Proyecto desarrollado individualmente con ❤️</i>
+</p>
