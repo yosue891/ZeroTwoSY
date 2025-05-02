@@ -601,7 +601,7 @@ let handler = async (m, { conn, args }) => {
       isForwarded: true,
       forwardedNewsletterMessageInfo: {
         newsletterJid: '120363372883715167@newsletter',
-        newsletterName: 'SoyMaycol',
+        newsletterName: 'SoyMaycol <3',
         serverMessageId: -1,
       },
       forwardingScore: 999,
