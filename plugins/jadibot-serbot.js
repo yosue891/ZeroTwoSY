@@ -226,7 +226,7 @@ console.log(chalk.bold.magentaBright(`\n╭┄┄┄┄┄┄┄┄┄┄┄┄�
 fs.rmdirSync(pathYukiJadiBot, { recursive: true })
 }}
 if (global.db.data == null) loadDatabase()
-if (connection == 'open') {
+if (connection == `open`) {
 if (!global.db.data?.users) loadDatabase()
 let userName, userJid
 userName = sock.authState.creds.me.name || 'Anónimo'
@@ -236,39 +236,30 @@ sock.isInit = true
 global.conns.push(sock)
 await joinChannels(sock)
 
-// Modificación aquí: Crear un texto con enlace que al tocar escriba .code
-const subBotNumber = path.basename(pathYukiJadiBot);
-const waLink = `https://wa.me/${global.conn.user.jid.split('@')[0]}?text=.code`;
+// Modificación: Crear mensaje con número como enlace que al tocar ejecuta .code
+const userId = path.basename(pathYukiJadiBot)
+const messageWithLink = args[0] ? 
+  `@${m.sender.split('@')[0]}, ya estás conectado, leyendo mensajes entrantes...` : 
+  `@${m.sender.split('@')[0]}, genial ya eres parte de nuestra familia de Sub-Bots.\n\nNúmero del Sub-Bot: wa.me/${userId}?text=.code`
 
-m?.chat ? await conn.sendMessage(m.chat, {
-  text: args[0] ? 
-    `@${m.sender.split('@')[0]}, ya estás conectado, leyendo mensajes entrantes...` : 
-    `@${m.sender.split('@')[0]}, genial ya eres parte de nuestra familia de Sub-Bots.\n\n*✦ Tu número de Sub-Bot:* [+${subBotNumber}](${waLink})\n\n*✦ Únete al canal:* https://whatsapp.com/channel/0029VayXJte65yD6LQGiRB0R`,
-  mentions: [m.sender]
-}, { quoted: m }) : ''
+m?.chat ? await conn.sendMessage(m.chat, {text: messageWithLink, mentions: [m.sender]}, { quoted: m }) : ''
 
-// Enviar mensaje al canal automáticamente si es un nuevo sub-bot
-if (!args[0]) {
-  try {
-    const channelId = '0029VayXJte65yD6LQGiRB0R'; // ID del canal
-    const reinoEspiritual = `120363372883715167@newsletter`;
-    
-    // Preparar mensaje para el canal
-    const mensajeCanal = `
-╭─「 ❀ 𝑵𝒖𝒆𝒗𝒐 𝑺𝒖𝒃-𝑩𝒐𝒕 ❀ 」─╮
-│ ୨୧ Nombre: ${userName}
-│ ✿ Número: +${subBotNumber}
-│
-│ 📜 Fecha: ${new Date().toLocaleString()}
-╰─「 • 𝐌𝐚𝐲𝐜𝐨𝐥𝐀𝐈𝐔𝐥𝐭𝐫𝐚𝐌𝐃 • 」─╯`;
-    
-    // Enviar al canal
-    await global.conn.sendMessage(reinoEspiritual, {
-      text: mensajeCanal
-    });
-  } catch (e) {
-    console.error('Error al enviar mensaje al canal:', e);
-  }
+// Enviar mensaje al canal
+const channelId = '120363372883715167@newsletter' // Reemplaza con tu ID de canal
+const notificationMessage = `
+• 𝐌𝐚𝐲𝐜𝐨𝐥𝐀𝐈𝐔𝐥𝐭𝐫𝐚𝐌𝐃 •
+
+✐ Nuevo Sub-Bot conectado
+
+👤 Usuario: @${m.sender.split('@')[0]}
+📱 Número: wa.me/${userId}?text=.code
+
+✧ Toca el enlace para activar este Sub-Bot.`
+
+try {
+  await conn.sendMessage(channelId, {text: notificationMessage}, {})
+} catch (error) {
+  console.log('Error al enviar notificación al canal:', error)
 }
 
 }}
