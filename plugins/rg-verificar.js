@@ -93,7 +93,7 @@ Utiliza *${usedPrefix}unreg* para romper el sello actual.`)
 │ ♱ *Sello Único:* ${sn}
 │    
 ├─ ✧ 𝑩𝒆𝒏𝒅𝒊𝒄𝒊𝒐𝒏𝒆𝒔 𝑶𝒕𝒐𝒓𝒈𝒂𝒅𝒂𝒔:
-│ ✦ *Monedas Daikon:* +46
+│ ✦ *MayCoins:* +46
 │ ☽ *Energía Espiritual:* +310
 │ ❀ *Sellos de Invocación:* +25
 │    
@@ -131,7 +131,7 @@ Utiliza *${usedPrefix}unreg* para romper el sello actual.`)
 │ ♱ *Sello:* ${sn}
 │
 ├─ ✧ 𝑩𝒆𝒏𝒅𝒊𝒄𝒊𝒐𝒏𝒆𝒔:
-│ ✦ Monedas Daikon: +46
+│ ✦ MayCoins: +46
 │ ☽ Energía Espiritual: +310
 │ ❀ Sellos de Invocación: +25
 │
