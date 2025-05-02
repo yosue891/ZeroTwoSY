@@ -1,8 +1,9 @@
 import fs from 'fs';
 import path from 'path';
+import { pathToFileURL } from 'url';
 
 const handler = async (m, { conn }) => {
-  const pluginDir = path.resolve('./plugins'); // Ruta absoluta a la carpeta
+  const pluginDir = path.resolve('./plugins');
   let report = '📄 *LOG DE ERRORES EN PLUGINS*\n\n';
 
   const files = fs.readdirSync(pluginDir).filter(f => f.endsWith('.js'));
@@ -10,9 +11,8 @@ const handler = async (m, { conn }) => {
   for (let file of files) {
     const filePath = path.join(pluginDir, file);
     try {
-      // Borrar caché para cargar de nuevo
-      delete require.cache[require.resolve(filePath)];
-      require(filePath); // Intentar importar
+      // Importación dinámica para ESM
+      await import(pathToFileURL(filePath).href);
       report += `✅ ${file} — Sin errores\n`;
     } catch (err) {
       report += `❌ ${file} — *Error:* ${err.message.split('\n')[0]}\n`;
