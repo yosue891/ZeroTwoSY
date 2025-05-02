@@ -155,8 +155,7 @@ Utiliza *${usedPrefix}unreg* para romper el sello actual.`)
 
 // ✧ Invocaciones permitidas ✧
 handler.help = ['reg']
-handle
-r.tags = ['rg']
+handler.tags = ['rg']
 handler.command = ['verify', 'verificar', 'reg', 'register', 'registrar']
 
 export default handler
