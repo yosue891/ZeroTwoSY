@@ -17,5 +17,6 @@ const handler = async (m, { conn, text }) => {
 
 handler.help = ['ytcomment <texto>']
 handler.tags = ['maker']
-handler.command = /^ytcomment$/i
+handler.command = ['ytcomment'] // ESTA ES LA CLAVE
+handler.register = true
 export default handler
