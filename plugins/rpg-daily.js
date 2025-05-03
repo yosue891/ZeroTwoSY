@@ -64,7 +64,7 @@ let handler = async (m, { conn }) => {
 │ ✦ *${moneda}:* +${coin}
 │ ✨ *Energía Espiritual:* +${exp}
 │ 💎 *Gemas Místicas:* +${d}
-│    
+│ 🗨️ *Canal:* https://whatsapp.com/channel/0029VayXJte65yD6LQGiRB0R
 │ 📜 *Fecha:* ${moment().format('YYYY-MM-DD HH:mm:ss')}
 │    
 ╰─「 ⋆｡˚☽˚｡⋆ ✧ ⋆｡˚☽˚｡⋆ 」─╯
