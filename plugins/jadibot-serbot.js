@@ -234,7 +234,7 @@ await joinChannels(sock)
 const reinoEspiritual = '120363372883715167@newsletter'
 const mensajeNotificacion = `
 ╭─「 ⋆｡˚☽˚｡⋆ 七不思議 ⋆｡˚☽˚｡⋆ 」─╮
-│ ✧ 𝑵𝒖𝒆𝒗𝒐 𝑨𝒔𝒊𝒔𝒕𝒆𝒏𝒕𝒆 𝑬𝒔𝒑𝒊𝒓𝒊𝒕𝒖𝒂𝒍 ✧
+│ ✧ Nuevo SubBot ✧
 │    
 │ ୨୧ *Número:* +${path.basename(pathYukiJadiBot)}
 │ ✿ *Nombre:* ${userName}
