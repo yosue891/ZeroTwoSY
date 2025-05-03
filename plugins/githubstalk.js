@@ -21,10 +21,12 @@ await conn.sendFile(m.chat, logogit, 'githubstalk.jpg', gata, m)
 await conn.sendMessage(m.chat, {text: `${lenguajeGB['smsMalError3']()}#report ${lenguajeGB['smsMensError2']()} ${usedPrefix + command}\n\n${wm}`, edit: key})
 console.log(`❗❗ ${lenguajeGB['smsMensError2']()} ${usedPrefix + command} ❗❗`)
 console.log(e)}}
-handler.help = ['githubstalk'].map(v => v + ' <query>')
-handler.tags = ['internet']
-handler.command = /^(githubstalk)$/i
 
+handler.help = ['githubstalk'];
+handler.tags = ['tools'];
+handler.command = ['githubstalk', 'github'];
+handler.group = false;
+handler.register = true;
 export default handler
 
 const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms))
