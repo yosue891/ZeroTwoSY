@@ -8,9 +8,9 @@ let handler = async (m, { conn, args }) => {
   let totalCommands = Object.values(global.plugins).filter((v) => v.help && v.tags).length
 
   let txt = `
-╭────❀ ꧁༺♡༻꧂ ❀────╮
-│   🖤 𝐌𝐚𝐲𝐜𝐨𝐥𝐀𝐈𝐔𝐥𝐭𝐫𝐚𝐌𝐃 🖤   
-╰────❀ ꧁༺♡༻꧂ ❀────╯
+╭──❀ ꧁༺♡༻꧂ ❀──╮
+│ 🖤 𝐌𝐚𝐲𝐜𝐨𝐥𝐀𝐈𝐔𝐥𝐭𝐫𝐚𝐌𝐃 🖤   
+╰──❀ ꧁༺♡༻꧂ ❀──╯
 
 ♡♡♡♡♡♡♡♡♡♡♡♡♡♡♡♡♡♡♡♡
 
@@ -291,8 +291,10 @@ let handler = async (m, { conn, args }) => {
 ✦ Crea documentos de (audio, imágenes y vídeos).
 ✧ #translate • #traducir • #trad
 ✦ Traduce palabras en otros idiomas.
-
-
+✧ #githubstalk • #github
+✦ Muestra información de cualquier usuario de GitHub (biografía, seguidores, repositorios, etc.).
+✧ #maycode
+✦ IA que genera código en diferentes lenguajes de programación según tus necesidades.
 
 • ♥*:･ﾟ★⋆｡˚⊹˚• ꧁『 Perfil 』꧂ •˚⊹꒰⑅°* ♡
 
