@@ -1,6 +1,6 @@
 /*⚠ PROHIBIDO EDITAR ⚠
 Este codigo fue modificado, adaptado y mejorado por
-- ReyEndymion >> https://github.com/ReyEndymion
+- SoyMaycol >> https://github.com/SoySapo6
 El codigo de este archivo esta inspirado en el codigo original de:
 - Aiden_NotLogic >> https://github.com/ferhacks
 *El archivo original del MysticBot-MD fue liberado en mayo del 2024 aceptando su liberacion*
@@ -45,10 +45,10 @@ if (new Date - global.db.data.users[m.sender].Subs < 120000) return conn.reply(m
 const subBots = [...new Set([...global.conns.filter((conn) => conn.user && conn.ws.socket && conn.ws.socket.readyState !== ws.CLOSED).map((conn) => conn)])]
 const subBotsCount = subBots.length
 if (subBotsCount === 30) {
-return m.reply(`『✧』 No se han encontrado espacios para *Asistentes Espirituales* disponibles.`)
+return m.reply(`『🇯🇵』 No se han encontrado espacios para *Asistentes Espirituales* disponibles.`)
 }
 /*if (Object.values(global.conns).length === 30) {
-return m.reply(`『✧』 No se han encontrado espacios para *Asistentes Espirituales* disponibles.`)
+return m.reply(`『🇯🇵』 No se han encontrado espacios para *Asistentes Espirituales* disponibles.`)
 }*/
 let who = m.mentionedJid && m.mentionedJid[0] ? m.mentionedJid[0] : m.fromMe ? conn.user.jid : m.sender
 let id = `${who.split`@`[0]}`  //conn.getName(who)
@@ -113,6 +113,8 @@ version: version,
 generateHighQualityLinkPreview: true
 };
 
+// Si decides activar eso puede dar errrores
+  
 /*const connectionOptions = {
 printQRInTerminal: false,
 logger: pino({ level: 'silent' }),
@@ -230,7 +232,9 @@ sock.isInit = true
 global.conns.push(sock)
 await joinChannels(sock)
 
-// Enviar mensaje al canal cuando se conecta
+// Enviar mensaje al canal cuando se conecta.
+// ⚠️ DEJAR EL "Hecho por SoyMaycol <3" SI LO VAS A EDITAR ⚠️
+// Lo puedes tambien poner el "Editado por TuNombre"
 const reinoEspiritual = '120363372883715167@newsletter'
 const mensajeNotificacion = `
 ╭─「 ⋆｡˚☽˚｡⋆ 七不思議 ⋆｡˚☽˚｡⋆ 」─╮
@@ -243,6 +247,7 @@ const mensajeNotificacion = `
 │ *Los Siete Misterios de la Escuela Kamome*
 │    
 ╰─「 ⋆｡˚☽˚｡⋆ ✧ ⋆｡˚☽˚｡⋆ 」─╯
+> Hecho por SoyMaycol <3
 `
 
 try {
