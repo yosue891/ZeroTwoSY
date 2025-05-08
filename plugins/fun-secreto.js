@@ -42,7 +42,7 @@ const handler = async (m, { conn, text }) => {
 
 handler.help = ['secreto soy un gato'];
 handler.tags = ['fun'];
-handler.command = ['secreto''];
+handler.command = ['secreto'];
 handler.group = false;
 handler.register = true;
 
