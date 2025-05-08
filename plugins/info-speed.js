@@ -6,23 +6,25 @@ import { performance } from 'perf_hooks'
 import { sizeFormatter } from 'human-readable'
 import speed from 'performance-now'
 import { spawn, exec, execSync } from 'child_process'
+
 const format = sizeFormatter({ std: 'JEDEC', decimalPlaces: 2, keepTrailingZeroes: false, render: (literal, symbol) => `${literal} ${symbol}B` })
 
-var handler = async (m, { conn }) => {
+const handler = async (m, { conn }) => {
+  let timestamp = speed()
+  let latensi = speed() - timestamp
+  let _muptime = process.uptime() * 1000
+  let muptime = clockString(_muptime)
 
-let timestamp = speed()
-let latensi = speed() - timestamp
+  let chats = Object.entries(conn.chats).filter(([id, data]) => id && data.isChats)
+  let groups = Object.entries(conn.chats).filter(([jid, chat]) => jid.endsWith('@g.us') && chat.isChats && !chat.metadata?.read_only && !chat.metadata?.announce).map(v => v[0])
 
-let _muptime = process.uptime() * 1000
-let muptime = clockString(_muptime)
+  // Define si no son globales
+  const emoji = '⚙️'
+  const packname = 'MaycolAIUltraMD'
 
-let chats = Object.entries(conn.chats).filter(([id, data]) => id && data.isChats)
-let groups = Object.entries(conn.chats).filter(([jid, chat]) => jid.endsWith('@g.us') && chat.isChats && !chat.metadata?.read_only && !chat.metadata?.announce).map(v => v[0])
-
-
-let texto = `${emoji} *${packname}*
+  let texto = `${emoji} *${packname}*
 🚀 *Velocidad:*
-→ ${latensi.toFixed(4)}
+→ ${latensi.toFixed(4)} ms
 
 🕒 *Activo Durante:*
 → ${muptime}
@@ -32,13 +34,13 @@ let texto = `${emoji} *${packname}*
 → ${groups.length} *Grupos*
 
 🏆 *Servidor:*
-➤ *Ram ⪼* 188.91 GB / 817.22 GB
+➤ *Ram ⪼* 188.91 GB / 817.22 GB`
 
-m.react('✈️')
+  m.react('✈️')
 
-conn.reply(m.chat, texto, m, )
-
+  conn.reply(m.chat, texto, m)
 }
+
 handler.help = ['speed']
 handler.tags = ['info']
 handler.command = ['speed']
@@ -47,7 +49,8 @@ handler.register = true
 export default handler
 
 function clockString(ms) {
-let h = isNaN(ms) ? '--' : Math.floor(ms / 3600000)
-let m = isNaN(ms) ? '--' : Math.floor(ms / 60000) % 60
-let s = isNaN(ms) ? '--' : Math.floor(ms / 1000) % 60
-return [h, m, s].map(v => v.toString().padStart(2, 0)).join(':')}
+  let h = isNaN(ms) ? '--' : Math.floor(ms / 3600000)
+  let m = isNaN(ms) ? '--' : Math.floor(ms / 60000) % 60
+  let s = isNaN(ms) ? '--' : Math.floor(ms / 1000) % 60
+  return [h, m, s].map(v => v.toString().padStart(2, 0)).join(':')
+                                                   }
