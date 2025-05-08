@@ -594,6 +594,8 @@ let handler = async (m, { conn, args }) => {
 ✦ Juega un pvp contra otro usuario.
 👻 #ttt
 ✦ Crea una sala de juego.
+🤫 #secreto
+✦ Di tu secreto en anónimo y salga en una Web.
 `.trim()
 
   await conn.sendMessage(m.chat, {
