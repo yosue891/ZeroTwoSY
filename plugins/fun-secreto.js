@@ -1,7 +1,7 @@
 import fetch from 'node-fetch';
 
 const handler = async (m, { conn, text }) => {
-  const secreto = text?.trim().split(' ').slice(1).join(' ');
+  const secreto = text?.trim();
   if (!secreto) throw 'Debes escribir tu secreto después de "secreto".';
 
   const url = `https://maycolaiultramd-secretos-api.onrender.com/MaycolAIUltraMD?secreto=${encodeURIComponent(secreto)}`;
