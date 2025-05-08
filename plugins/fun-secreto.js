@@ -18,7 +18,8 @@ const handler = async (m, { conn, text }) => {
 │
 │ 『✧』 ${respuesta}
 │
-│  > Toca el Banner si quieres ver tu secreto
+│  Puedes revisar tu Secreto aca...
+> *_https://maysecretos.onrender.com_*
 ╰─────────────────⛩️`;
 
     await conn.sendMessage(m.chat, {
@@ -27,11 +28,11 @@ const handler = async (m, { conn, text }) => {
         externalAdReply: {
           title: 'Tu secreto ha sido registrado',
           body: 'MaycolAIUltraMD • SoyMaycol',
-          thumbnailUrl: 'https://files.catbox.moe/rgi9f7.jpeg',
+          thumbnailUrl: 'https://files.catbox.moe/ut05k5.jpeg',
           mediaType: 1,
           renderLargerThumbnail: true,
           showAdAttribution: true,
-          sourceUrl: 'https://maysecretos.onrender.com/'
+          sourceUrl: 'https://whatsapp.com/channel/0029VayXJte65yD6LQGiRB0R'
         }
       }
     }, { quoted: m });
