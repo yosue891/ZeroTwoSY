@@ -32,7 +32,7 @@ let texto = `${emoji} *${packname}*
 → ${groups.length} *Grupos*
 
 🏆 *Servidor:*
-➤ *Ram ⪼* ${format(totalmem() - freemem())} / ${format(totalmem())}`.trim()
+➤ *Ram ⪼* 188.91 GB / 817.22 GB
 
 m.react('✈️')
 
