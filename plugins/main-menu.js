@@ -26,7 +26,7 @@ let handler = async (m, { conn, args }) => {
 │ 🔄 Sistema » Multi Device
 ╰┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈
 
-🔍 Usa #yokai para crear un Bot secundario
+🔍 Usa #code o #qr para crear un tenerme jeje <3
 
 ┊♡⃛◌°˚˖⋆࿔࿉༓ ༓࿉࿔⋆˖˚°◌⃛♡┊
 
