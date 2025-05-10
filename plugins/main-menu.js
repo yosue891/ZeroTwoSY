@@ -98,6 +98,7 @@ let handler = async (m, { conn, args }) => {
 ┃ ❈ #apk • #modapk       ┃
 ┃ ❈ #tiktokrandom        ┃
 ┃ ❈ #npmdl               ┃
+┃ ❈ #playmp4             ┃
 ┗━━━━━━━━━━━━━━━┛
 
 ┏━━━━━━━━━━━━━━━┓
