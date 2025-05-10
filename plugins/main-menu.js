@@ -180,6 +180,7 @@ let handler = async (m, { conn, args }) => {
 ┃ ❈ #githubstalk         ┃
 ┃ ❈ #maycode             ┃
 ┃ ❈ #mayteacher          ┃
+┃ ❈ #html                ┃
 ┗━━━━━━━━━━━━━━━┛
 
 ┏━━━━━━━━━━━━━━━┓
