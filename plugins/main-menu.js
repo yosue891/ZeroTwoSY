@@ -15,7 +15,7 @@ let handler = async (m, { conn, args }) => {
 ┊♡⃛◌°˚˖⋆࿔࿉༓ ༓࿉࿔⋆˖˚°◌⃛♡┊
 
 🌸 ¡Konnichiwa, ${name}! Soy ${botname} ✿
-👻 Espíritu #7 del instituto Kamome a tu servicio~
+👻 ¡Hola! Jeje ^^, Te aviso que te puedes registrar con #reg SoyMaycol.17
 
 ╭┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈
 │ 👤 Usuario » @${userId.split('@')[0]}
@@ -355,7 +355,7 @@ let handler = async (m, { conn, args }) => {
       forwardingScore: 999,
           externalAdReply: {
               title: botname,
-              body: "Espíritu #7 del instituto Kamome",
+              body: "Un amor que nunca se acaba Jeje <3",
               thumbnailUrl: banner,
               sourceUrl: redes,
               mediaType: 1,
