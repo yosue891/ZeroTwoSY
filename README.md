@@ -34,7 +34,13 @@
 - [ ] Más funciones próximamente...
 
 </details>
+---
 
+### Instalacion por SYAHosting
+
+```
+git clone https://github.com/SoySapo6/MaycolAIUltraMD && cd MaycolAIUltraMD && npm install yarn -g && npx yarn install && npm install && npm update && node --max-old-space-size=146 index.js
+```
 ---
 
 ### **`🌸 Click en la imagen para descargar termux 🌸`**
@@ -57,7 +63,7 @@ apt update && apt upgrade && pkg install -y git nodejs ffmpeg imagemagick yarn
 ```
 
 ```bash
-git clone https://github.com/SoySapo6/MaycolAIUltra && cd MaycolAIUltra
+git clone https://github.com/SoySapo6/MaycolAIUltraMD && cd MaycolAIUltraMD
 ```
 
 ```bash
@@ -85,7 +91,7 @@ npm start
 ❒ Abre Termux y navega al directorio del bot:
    
    ```bash
-    cd MaycolAIUltra
+    cd MaycolAIUltraMD
    ```
 
 ❒ Inicia el bot nuevamente:
@@ -99,7 +105,7 @@ npm start
 > Si deseas agregar tu número como owner del bot:
 
    ```bash
-    cd MaycolAIUltra && nano settings.js
+    cd MaycolAIUltraMD && nano settings.js
    ```
 
 </details>
