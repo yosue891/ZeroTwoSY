@@ -22,7 +22,7 @@ export async function before(m) {
     let user = global.db.data.users[m.sender];
     
     if (chat.isBanned) {
-      const avisoDesactivado = `╭─❍「 ✦ 𝗛𝗮𝗻𝗮𝗸𝗼 𝗕𝗼𝘁 ✦ 」\n│\n├─ El poder de Hanako ha sido *sellado* en este grupo.\n│\n├─ Invoca su regreso con:\n│   ⇝ *${usedPrefix}bot on*\n│\n╰─✦`;
+      const avisoDesactivado = `╭─❍「 ✦ 𝚂𝚘𝚢𝙼𝚊𝚢𝚌𝚘𝚕 <𝟹 ✦ 」\n│\n├─ El poder de Hanako ha sido *sellado* en este grupo.\n│\n├─ Invoca su regreso con:\n│   ⇝ *${usedPrefix}bot on*\n│\n╰─✦`;
       await m.reply(avisoDesactivado);
       return;
     }
@@ -32,6 +32,6 @@ export async function before(m) {
 
   } else {
     const comando = m.text.trim().split(' ')[0];
-    await m.reply(`╭─❍「 ✦ 𝗛𝗮𝗻𝗮𝗸𝗼 𝗔𝗗𝗩 ✦ 」\n│\n├─ El hechizo *${comando}* no existe en los registros del más allá.\n├─ Consulta los conjuros disponibles con:\n│   ⇝ *#help*\n╰─✦`);
+    await m.reply(`╭─❍「 ✦ 𝚂𝚘𝚢𝙼𝚊𝚢𝚌𝚘𝚕 <𝟹 ✦ 」\n│\n├─ El hechizo *${comando}* no existe en los registros del más allá.\n├─ Consulta los conjuros disponibles con:\n│   ⇝ *#help*\n╰─✦`);
   }
 }
