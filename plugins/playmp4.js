@@ -3,12 +3,16 @@ import { writeFileSync, unlinkSync } from 'fs'
 import path from 'path'
 
 const handler = async (m, { args, conn }) => {
-  if (!args[0]) return conn.reply(m.chat, '⚠️ *Escribe un enlace de YouTube.*\nEj: *playmp4 https://youtu.be/xxxx*', m)
+  if (!args[0]) return conn.reply(m.chat, '✘ 「 𝙁𝙖𝙡𝙩𝙖 𝙚𝙡 𝙚𝙣𝙡𝙖𝙘𝙚 」\n➤ Usa: *playmp4 https://youtu.be/xxxx*', m)
 
   const url = args[0]
   const api = `https://nightapioficial.onrender.com/api/ytvideo?url=${encodeURIComponent(url)}&format=mp4&quality=720p`
 
-  await conn.reply(m.chat, `⏳ *Hanako-kun está invocando el video... espera un poco, humano.*`, m)
+  await conn.reply(m.chat, `
+╭━━━━〔 𝑯𝑨𝑵𝑨𝑲𝑶 𝑬𝑺𝑻𝑨́ 𝑬𝑵 𝑨𝑪𝑪𝑰𝑶́𝑵 〕━━━━╮
+┃⏳ 𝙄𝙣𝙫𝙤𝙘𝙖𝙣𝙙𝙤 𝙫𝙞𝙙𝙚𝙤 𝙙𝙚𝙨𝙙𝙚 𝙚𝙡 𝙞𝙣𝙛𝙧𝙖𝙢𝙪𝙣𝙙𝙤...
+┃ 𝙋𝙤𝙧 𝙛𝙖𝙫𝙤𝙧, 𝙚𝙨𝙥𝙚𝙧𝙖 𝙪𝙣𝙤𝙨 𝙨𝙚𝙜𝙪𝙣𝙙𝙤𝙨...
+╰━━━━━━━━━━━━━━━━━━━━━╯`, m)
 
   try {
     const res = await fetch(api)
@@ -24,13 +28,21 @@ const handler = async (m, { args, conn }) => {
 
     await conn.sendMessage(m.chat, {
       video: { url: filepath },
-      caption: `✨ *Aquí tienes tu video humano~*\n🎬 *Invocado por Hanako-kun desde el inframundo.*\n🔗 ${url}`
+      caption: `
+╭━━━〔 𝙑𝙄𝘿𝙀𝙊 𝘼𝙍𝙍𝙄𝘽𝘼 〕━━━╮
+┃✨ *𝙃𝙪𝙢𝙖𝙣𝙤, 𝙖𝙦𝙪𝙞́ 𝙩𝙞𝙚𝙣𝙚𝙨 𝙩𝙪 𝙫𝙞𝙙𝙚𝙤~*
+┃🎬 *𝙏𝙧𝙖𝙞́𝙙𝙤 𝙙𝙚𝙨𝙙𝙚 𝙤𝙩𝙧𝙖 𝙙𝙞𝙢𝙚𝙣𝙨𝙞𝙤́𝙣*
+┃🔗 ${url}
+╰━━━━━━━━━━━━━━━━━╯`.trim()
     }, { quoted: m })
 
-    unlinkSync(filepath) // borrar el archivo luego de enviarlo
+    unlinkSync(filepath)
   } catch (err) {
     console.error('[ERROR en playmp4]', err)
-    conn.reply(m.chat, `❌ *Error fatal: Hanako-kun no pudo traer tu video.*\nVerifica que el enlace sea correcto o intenta más tarde.`, m)
+    conn.reply(m.chat, `
+✘ 「 𝑭𝑨𝑳𝑳𝑶 𝑬𝑵 𝑬𝑳 𝑹𝑰𝑻𝑼𝑨𝑳 」
+➤ No pude traer tu video...
+➤ Verifica el enlace o invócame de nuevo más tarde.`, m)
   }
 }
 
