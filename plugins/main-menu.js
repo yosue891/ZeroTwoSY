@@ -178,6 +178,7 @@ let handler = async (m, { conn, args }) => {
 ┃ ❈ #translate • #traducir┃
 ┃ ❈ #githubstalk         ┃
 ┃ ❈ #maycode             ┃
+┃ ❈ #mayteacher          ┃
 ┗━━━━━━━━━━━━━━━┛
 
 ┏━━━━━━━━━━━━━━━┓
@@ -335,6 +336,7 @@ let handler = async (m, { conn, args }) => {
 ┃ ❈ #pvp • #suit         ┃
 ┃ ❈ #ttt                 ┃
 ┃ ❈ #secreto             ┃
+┃ ❈ #cuaderno            ┃
 ┗━━━━━━━━━━━━━━━┛
 
 ┊♡⃛◌°˚˖⋆࿔࿉༓ ༓࿉࿔⋆˖˚°◌⃛♡┊
