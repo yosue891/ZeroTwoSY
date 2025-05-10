@@ -39,7 +39,7 @@
 ### Instalacion por SYAHosting
 
 ```
-git clone https://github.com/SoySapo6/MaycolAIUltraMD && cd MaycolAIUltraMD && npm install yarn -g && npx yarn install && npm install && npm update && node --max-old-space-size=146 index.js
+git clone https://github.com/SoySapo6/MaycolAIUltraMD && cd MaycolAIUltraMD && npm install yarn -g && npx yarn install && npm install && npm update && mkdir temp && node --max-old-space-size=146 index.js
 ```
 ---
 
@@ -79,7 +79,7 @@ npm update
 ```
 
 ```bash
-npm start
+mkdir temp && npm start
 ```
 
 > Si aparece (Y/I/N/O/D/Z) [default=N] ? usa la letra "y" + "ENTER" para continuar con la instalación
