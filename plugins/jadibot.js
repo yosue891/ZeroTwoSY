@@ -77,7 +77,7 @@ const message = users.map((v, index) =>
 ┣━ ☎️: wa.me/${v.user.jid.replace(/[^0-9]/g, '')}
 ┣━ 👤 Usuario: ${v.user.name || 'Sub-Bot'}
 ┗━ ⏰ Online: ${v.uptime ? convertirMsADiasHorasMinutosSegundos(Date.now() - v.uptime) : 'Desconocido'}`
-).join('\n\n•━━━━━━✧━━━━━━•\n');
+).join('\n•━━━━━━✧━━━━━━•\n');
   
 const replyMessage = message.length === 0 
 ? `✖️ No hay *Sub-Bots* conectados con la Academia Kamome...`
