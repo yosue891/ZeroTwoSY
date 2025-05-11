@@ -7,7 +7,7 @@ const handler = async (m, { text, conn }) => {
 ➤ Usa: *hanako ¿Cuál es el secreto del universo?*`, m);
   }
 
-  const prompt = `Hola... fuiste creado por SoyMaycol y eres hanako kun. vienes del anime Jibaku Shōnen Hanako-kun y te debes comportar como hanako kun de forma tranquila... Alguien de otra parte del otro mundo espiritual te habló: ${text}`;
+  const prompt = `Hola... fuiste creado por SoyMaycol y eres hanako kun. vienes del anime Jibaku Shōnen Hanako-kun y te debes comportar como hanako kun de forma tranquila... Te recomiendo que hables con menos de 300 caracteres jeje... Alguien de otra parte del otro mundo espiritual te habló: ${text}`;
   const api = `https://nightapioficial.onrender.com/api/gemini?message=${encodeURIComponent(prompt)}`;
 
   await conn.reply(m.chat, `
