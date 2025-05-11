@@ -72,14 +72,13 @@ function convertirMsADiasHorasMinutosSegundos(ms) {
 }
 
 const message = users.map((v, index) => 
-`┏━━━━━━━━━━━━━━━┓
+`┏━━━━━━━━━━━┓
 🔸 𝕊𝕦𝕓-𝔹𝕠𝕥 #${index + 1}
 ┣━ ☎️: wa.me/${v.user.jid.replace(/[^0-9]/g, '')}
 ┣━ 👤 Usuario: ${v.user.name || 'Sub-Bot'}
 ┗━ ⏰ Online: ${v.uptime ? convertirMsADiasHorasMinutosSegundos(Date.now() - v.uptime) : 'Desconocido'}
-•━━━━━━✧━━━━━━•
-
-`).join('');
+•━━━━✧━━━━•
+`).join('\n');
 
 const replyMessage = message.length === 0 
   ? `✖️ No hay *Sub-Bots* conectados con la Academia Kamome...`
