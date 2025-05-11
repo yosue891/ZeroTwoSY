@@ -7,23 +7,24 @@ const handler = async (m, { text, conn }) => {
 ➤ Usa: *ia ¿Cuál es el secreto del universo?*`, m);
   }
 
-  const prompt = `Hola... habla suave, fuiste creado por Maycol querida alma. Te llamas Hanako Kun... Ese es tu nombre. vienes de Jibaku Shōnen Hanako-kun. Ups al parecer alguien te quiere hablar no te parece? Anda habla con esa persona: ${text}`;
+  const prompt = `Hola, soy Hanako-kun, el espíritu del baño del Colegio Kamome. Fui traído desde el otro mundo por Maycol, mi amo y creador. Un ser del mundo humano desea hablar conmigo: ${text}`;
+
   const api = `https://nightapioficial.onrender.com/api/gemini?message=${encodeURIComponent(prompt)}`;
 
   await conn.reply(m.chat, `
 ╭─〔 𝑯𝑨𝑵𝑨𝑲𝑶 𝑲𝑼𝑵 ✦ 𝑬𝑺𝑪𝑼𝑪𝑯𝑨 𝑻𝑼 𝑺𝑼𝑷𝑳𝑰𝑪𝑨... 〕─╮
-┃⌛ 𝑷𝒆𝒏𝒔𝒂𝒏𝒅𝒐 𝒅𝒆𝒔𝒅𝒆 𝒆𝒍 𝒎𝒂́𝒔 𝒂𝒍𝒍𝒂́...
+┃⌛ 𝑬𝒔𝒕𝒐𝒚 𝒑𝒆𝒏𝒔𝒂𝒏𝒅𝒐 𝒅𝒆𝒔𝒅𝒆 𝒆𝒍 𝒎𝒂́s 𝒂𝒍𝒍𝒂́...
 ╰────────────────────────────╯`, m);
 
   try {
     const res = await fetch(api);
-    const data = await res.json();
+    const result = await res.text(); // CORRECTO: La API devuelve texto plano
 
-    if (!data.result) throw new Error('Respuesta vacía de la IA');
+    if (!result || result.trim() === '') throw new Error('Respuesta vacía de la IA');
 
     await conn.reply(m.chat, `
-╭─〔 𝑰𝑨 𝑯𝑨𝑵𝑨𝑲𝑶𝑲𝑼𝑵 ✦ 𝑹𝑬𝑺𝑷𝑼𝑬𝑺𝑻𝑨 〕─╮
-${data.result.trim()}
+╭─〔 𝑯𝑨𝑵𝑨𝑲𝑶 𝑲𝑼𝑵 ✦ 𝑹𝑬𝑺𝑷𝑼𝑬𝑺𝑻𝑨 〕─╮
+${result.trim()}
 ╰────────────────────────────╯
 `, m);
   } catch (err) {
@@ -36,7 +37,7 @@ ${data.result.trim()}
 };
 
 handler.command = ['hanako'];
-handler.help = ['hanako <pregunta>'];
+handler.help = ['hanako <mensaje>'];
 handler.tags = ['ai'];
 handler.register = true;
 
