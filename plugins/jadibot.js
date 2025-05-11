@@ -83,7 +83,7 @@ const replyMessage = message.length === 0
 ? `✖️ No hay *Sub-Bots* conectados con la Academia Kamome...`
 : message;
 
-const responseMessage = `✦ 𝙻𝙸𝚂𝚃𝙰 𝙳𝙴 𝚂𝚄𝙱-𝙱𝙾𝚃𝚂 ✦\n\n✨ Puedes pedirle a un usuario que conecte el bot a tu grupo.\n\n⚠️ *El uso incorrecto del Sub-Bot es responsabilidad del usuario.*\n\n📡 Total Conectados: ${users.length || '0'}\n\n${replyMessage}`;
+const responseMessage = `✎ 𝐋𝐢𝐬𝐭𝐚 𝐃𝐞 𝐇𝐚𝐧𝐚𝐤𝐨-𝐁𝐨𝐭𝐬 ✎\n\nHola Jeje ^^ Estos son las personas que me tienen a mi jeje <3\n\n> Hecho por SoyMaycol <3*\n\n Total Conectados: ${users.length || '0'}\n\n${replyMessage}`;
 await _envio.sendMessage(m.chat, {text: responseMessage, mentions: _envio.parseMention(responseMessage)}, {quoted: m})
 break
 }
