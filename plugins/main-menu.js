@@ -357,7 +357,8 @@ let handler = async (m, { conn, args }) => {
 `.trim()
 
   await conn.sendMessage(m.chat, {
-    text: txt,
+    video: { url: 'https://files.catbox.moe/d35acn.mp4' },
+    caption: txt,
     contextInfo: {
       mentionedJid: [m.sender, userId],
       isForwarded: true,
@@ -367,18 +368,17 @@ let handler = async (m, { conn, args }) => {
         serverMessageId: -1,
       },
       forwardingScore: 999,
-          externalAdReply: {
-              title: botname,
-              body: "Un amor que nunca se acaba Jeje <3",
-              thumbnailUrl: banner,
-              sourceUrl: redes,
-              mediaType: 1,
-              showAdAttribution: true,
-              renderLargerThumbnail: true,
-          },
+      externalAdReply: {
+        title: botname,
+        body: "Un amor que nunca se acaba Jeje <3",
+        thumbnailUrl: banner,
+        sourceUrl: redes,
+        mediaType: 1,
+        showAdAttribution: true,
+        renderLargerThumbnail: true,
       },
+    }
   }, { quoted: m })
-
 }
 
 handler.help = ['menu']
@@ -388,8 +388,8 @@ handler.command = ['menu', 'menú', 'help', 'ayuda']
 export default handler
 
 function clockString(ms) {
-    let seconds = Math.floor((ms / 1000) % 60)
-    let minutes = Math.floor((ms / (1000 * 60)) % 60)
-    let hours = Math.floor((ms / (1000 * 60 * 60)) % 24)
-    return `${hours}h ${minutes}m ${seconds}s`
-      }
+  let seconds = Math.floor((ms / 1000) % 60)
+  let minutes = Math.floor((ms / (1000 * 60)) % 60)
+  let hours = Math.floor((ms / (1000 * 60 * 60)) % 24)
+  return `${hours}h ${minutes}m ${seconds}s`
+}
