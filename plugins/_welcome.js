@@ -3,8 +3,8 @@ import moment from 'moment-timezone'
 
 const canalId = '120363372883715167@newsletter' // Canal donde enviar el mensaje
 
-export async function before(m, { conn, participants, groupMetadata }) {
-    if (!m.messageStubType || !m.isGroup) return !0;
+export async function before(m, { conn, participants }) {
+    if (!m.messageStubType || !m.isGroup) return;
 
     const fkontak = {
         key: {
@@ -15,81 +15,69 @@ export async function before(m, { conn, participants, groupMetadata }) {
         },
         message: {
             contactMessage: {
-                vcard: `BEGIN:VCARD\nVERSION:3.0\nN:Sy;Bot;;;\nFN:y\nitem1.TEL;waid=${m.sender.split('@')[0]}:${m.sender.split('@')[0]}\nitem1.X-ABLabel:Ponsel\nEND:VCARD`
+                vcard: `BEGIN:VCARD\nVERSION:3.0\nN:Sy;Bot;;;\nFN:Bot\nitem1.TEL;waid=${m.sender.split('@')[0]}:${m.sender.split('@')[0]}\nitem1.X-ABLabel:Ponsel\nEND:VCARD`
             }
         },
         participant: '0@s.whatsapp.net'
     };
 
-    let ppUrl = await conn.profilePictureUrl(m.messageStubParameters?.[0], 'image').catch(_ => null);
+    const jid = m.messageStubParameters?.[0]; // ID del usuario afectado
     let imgBuffer = null;
 
-    if (ppUrl) {
+    if (jid) {
         try {
-            imgBuffer = await (await fetch(ppUrl)).buffer();
+            const ppUrl = await conn.profilePictureUrl(jid, 'image');
+            const res = await fetch(ppUrl);
+            if (res.ok) imgBuffer = await res.buffer();
         } catch (e) {
-            console.error('Error descargando imagen de perfil:', e);
+            console.log('Error obteniendo imagen de perfil, usando genérica');
         }
     }
 
-    let groupSize = participants.length;
-    if (m.messageStubType == 27) groupSize++;
-    else if (m.messageStubType == 28 || m.messageStubType == 32) groupSize--;
-
-    if (m.messageStubType == 28 || m.messageStubType == 32) {
-        const mensajeAdios = `
+    const hora = moment().format('YYYY-MM-DD HH:mm:ss');
+    const bienvenida = `
 ╭─「 🇯🇵 𝑯𝒂𝒏𝒂𝒌𝒐 𝑲𝒖𝒏 」─╮
-│    
-│  ❀ *Adiós* a nuestro espíritu...    
-│  ✦ *Hora:* ${moment().format('YYYY-MM-DD HH:mm:ss')}  
-│  ✦ *Razón:* Alguien dejó el grupo...  
-│  🗨️ *Comentario:* Qué mal :c  
-│    
+│
+│  ❀ *Bienvenido* al grupo de espíritus...
+│  ✦ *Hora:* ${hora}
+│  ✦ *Mensaje:* ¡Ahora eres parte de nuestro mundo!
+│
 ╰─「 🇯🇵 𝑯𝒂𝒏𝒂𝒌𝒐 𝑲𝒖𝒏 」─╯
 
 > Hecho por SoyMaycol`.trim();
 
-        await conn.sendMessage(m.chat, { text: mensajeAdios }, { quoted: m });
-
-        try {
-            if (imgBuffer) {
-                await conn.sendMessage(canalId, {
-                    image: imgBuffer,
-                    caption: mensajeAdios
-                });
-            } else {
-                await conn.sendMessage(canalId, { text: mensajeAdios });
-            }
-        } catch (canalError) {
-            console.error('Error al enviar al canal:', canalError);
-        }
-    }
-
-    if (m.messageStubType == 27) {
-        const mensajeBienvenida = `
+    const despedida = `
 ╭─「 🇯🇵 𝑯𝒂𝒏𝒂𝒌𝒐 𝑲𝒖𝒏 」─╮
-│    
-│  ❀ *Bienvenido* al grupo de espíritus...    
-│  ✦ *Hora:* ${moment().format('YYYY-MM-DD HH:mm:ss')}  
-│  ✦ *Mensaje:* ¡Ahora eres parte de nuestro mundo!  
-│    
+│
+│  ❀ *Adiós* a nuestro espíritu...
+│  ✦ *Hora:* ${hora}
+│  ✦ *Razón:* Alguien dejó el grupo...
+│  🗨️ *Comentario:* Qué mal :c
+│
 ╰─「 🇯🇵 𝑯𝒂𝒏𝒂𝒌𝒐 𝑲𝒖𝒏 」─╯
 
 > Hecho por SoyMaycol`.trim();
 
-        await conn.sendMessage(m.chat, { text: mensajeBienvenida }, { quoted: m });
+    const mensaje = m.messageStubType === 27 ? bienvenida
+                   : (m.messageStubType === 28 || m.messageStubType === 32) ? despedida
+                   : null;
 
-        try {
-            if (imgBuffer) {
-                await conn.sendMessage(canalId, {
-                    image: imgBuffer,
-                    caption: mensajeBienvenida
-                });
-            } else {
-                await conn.sendMessage(canalId, { text: mensajeBienvenida });
-            }
-        } catch (canalError) {
-            console.error('Error al enviar al canal:', canalError);
+    if (!mensaje) return;
+
+    // Enviar al grupo
+    await conn.sendMessage(m.chat, { text: mensaje }, { quoted: m });
+
+    // Enviar al canal
+    try {
+        if (imgBuffer) {
+            await conn.sendMessage(canalId, {
+                image: imgBuffer,
+                caption: mensaje
+            });
+        } else {
+            await conn.sendMessage(canalId, { text: mensaje });
         }
+    } catch (err) {
+        console.error('Error al enviar al canal:', err);
     }
 }
