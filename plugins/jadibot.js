@@ -76,6 +76,7 @@ const message = users.map((v, index) =>
 🔸 𝕊𝕦𝕓-𝔹𝕠𝕥 #${index + 1}
 ┣━ ☎️: wa.me/${v.user.jid.replace(/[^0-9]/g, '')}
 ┣━ 👤 Usuario: ${v.user.name || 'Sub-Bot'}
+┣━ 🇯🇵 Creador: SoyMaycol <3
 ┗━ ⏰ Online: ${v.uptime ? convertirMsADiasHorasMinutosSegundos(Date.now() - v.uptime) : 'Desconocido'}`
 ).join('\n┗━━━━•(=^●ω●^=)•━━━━┛\n\n');
   
@@ -83,7 +84,7 @@ const replyMessage = message.length === 0
 ? `✖️ No hay *Sub-Bots* conectados con la Academia Kamome...`
 : message;
 
-const responseMessage = `✎ 𝐋𝐢𝐬𝐭𝐚 𝐃𝐞 𝐇𝐚𝐧𝐚𝐤𝐨-𝐁𝐨𝐭𝐬 ✎\n\nHola Jeje ^^ Estos son las personas que me tienen a mi jeje <3\n\n> Hecho por *_SoyMaycol <3_*\n\nSi Quieres puedes hacerte Hanako-Bot con #code o #qr jeje ^^\n\nEstas lindas personitas me tienen jeje <3: ${users.length || '0'}\n\n${replyMessage}`;
+const responseMessage = `✎ 𝐋𝐢𝐬𝐭𝐚 𝐃𝐞 𝐇𝐚𝐧𝐚𝐤𝐨-𝐁𝐨𝐭𝐬 ✎\n\nHola Jeje ^^ Estos son las personas que me tienen a mi jeje <3\n\n> Hecho por *_SoyMaycol <3_*\n\nSi Quieres puedes hacerte Hanako-Bot con #code o #qr jeje ^^\n\n~*Estas lindas personitas me tienen jeje <3 en cual en total son ${users.length || '0'}*~\n\n${replyMessage}`;
 await _envio.sendMessage(m.chat, {text: responseMessage, mentions: _envio.parseMention(responseMessage)}, {quoted: m})
 break
 }
