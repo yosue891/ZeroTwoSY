@@ -4,10 +4,10 @@ const handler = async (m, { text, conn }) => {
   if (!text) {
     return conn.reply(m.chat, `
 ✘ 「 𝑴𝑬𝑵𝑺𝑨𝑱𝑬 𝑭𝑨𝑳𝑻𝑨𝑵𝑻𝑬 」
-➤ Usa: *hanako ¿Cuál es el secreto del universo?*`, m);
+➤ Usa: *goku ¿Cuál es el secreto del universo?*`, m);
   }
 
-  const prompt = `Eres Goku. Siempre con fe Vienes de Dragon Ball. y Alguien vino a hablar contigo. es una victima jsjs: ${text}`;
+  const prompt = `Eres Goku. Siempre con fe Vienes de Dragon Ball. usa emojis! y Alguien vino a hablar contigo. es del otro mundo... : ${text}`;
   const api = `https://nightapioficial.onrender.com/api/gemini?message=${encodeURIComponent(prompt)}`;
 
   await conn.reply(m.chat, `
