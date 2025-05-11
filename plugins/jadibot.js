@@ -52,38 +52,50 @@ conn.ws.close()
 break
 }
 
-case isCommand3: {
+    case isCommand3: {
 const users = [...new Set([...global.conns.filter((conn) => conn.user && conn.ws.socket && conn.ws.socket.readyState !== ws.CLOSED).map((conn) => conn)])];
 
 function convertirMsADiasHorasMinutosSegundos(ms) {
-var segundos = Math.floor(ms / 1000);
-var minutos = Math.floor(segundos / 60);
-var horas = Math.floor(minutos / 60);
-var días = Math.floor(horas / 24);
-segundos %= 60;
-minutos %= 60;
-horas %= 24;
-var resultado = "";
-if (días) resultado += `${días} días, `;
-if (horas) resultado += `${horas} hrs, `;
-if (minutos) resultado += `${minutos} min, `;
-if (segundos) resultado += `${segundos} seg`;
-return resultado;
+  var segundos = Math.floor(ms / 1000);
+  var minutos = Math.floor(segundos / 60);
+  var horas = Math.floor(minutos / 60);
+  var días = Math.floor(horas / 24);
+  segundos %= 60;
+  minutos %= 60;
+  horas %= 24;
+  var resultado = "";
+  if (días) resultado += `${días} días, `;
+  if (horas) resultado += `${horas} hrs, `;
+  if (minutos) resultado += `${minutos} min, `;
+  if (segundos) resultado += `${segundos} seg`;
+  return resultado;
 }
 
 const message = users.map((v, index) => 
-`┏━━━━━━━━━━━━━━━┓\n🔸 𝕊𝕦𝕓-𝔹𝕠𝕥 #${index + 1}\n┣━ ☎️: wa.me/${v.user.jid.replace(/[^0-9]/g, '')}\n┣━ 👤 Usuario: ${v.user.name || 'Sub-Bot'}\n┗━ ⏰ Online: ${ v.uptime ? convertirMsADiasHorasMinutosSegundos(Date.now() - v.uptime) : 'Desconocido' }`
-).join('\n\n•━━━━━━✧━━━━━━•');
+`┏━━━━━━━━━━━━━━━┓
+🔸 𝕊𝕦𝕓-𝔹𝕠𝕥 #${index + 1}
+┣━ ☎️: wa.me/${v.user.jid.replace(/[^0-9]/g, '')}
+┣━ 👤 Usuario: ${v.user.name || 'Sub-Bot'}
+┗━ ⏰ Online: ${v.uptime ? convertirMsADiasHorasMinutosSegundos(Date.now() - v.uptime) : 'Desconocido'}
+•━━━━━━✧━━━━━━•`).join('\n');
 
 const replyMessage = message.length === 0 
-? `✖️ No hay *Sub-Bots* conectados con la Academia Kamome...`
-: message;
+  ? `✖️ No hay *Sub-Bots* conectados con la Academia Kamome...`
+  : message;
 
-const responseMessage = `✦ 𝙻𝙸𝚂𝚃𝙰 𝙳𝙴 𝚂𝚄𝙱-𝙱𝙾𝚃𝚂 ✦\n\n✨ Puedes pedirle a un usuario que conecte el bot a tu grupo.\n\n⚠️ *El uso incorrecto del Sub-Bot es responsabilidad del usuario.*\n\n📡 Total Conectados: ${users.length || '0'}\n\n${replyMessage}`;
-await _envio.sendMessage(m.chat, {text: responseMessage, mentions: _envio.parseMention(responseMessage)}, {quoted: m})
+const responseMessage = `✦ 𝙻𝙸𝚂𝚃𝙰 𝙳𝙴 𝚂𝚄𝙱-𝙱𝙾𝚃𝚂 ✦
+
+✨ Puedes pedirle a un usuario que conecte el bot a tu grupo.
+
+⚠️ *El uso incorrecto del Sub-Bot es responsabilidad del usuario.*
+
+📡 Total Conectados: ${users.length || '0'}
+
+${replyMessage.trim()}`;
+
+await conn.sendMessage(m.chat, { text: responseMessage }, { quoted: m })
 break
-}
-}}
+    }
 
 handler.tags = ['serbot']
 handler.help = ['sockets', 'deletesesion', 'pausarai']
