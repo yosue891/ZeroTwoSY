@@ -1,49 +1,60 @@
+// ✧･ﾟ: *✧･ﾟ:* 𝐉𝐢𝐛𝐚𝐤𝐮 𝐒𝐡𝐨𝐮𝐧𝐞𝐧 𝐇𝐚𝐧𝐚𝐤𝐨-𝐤𝐮𝐧 𝐓𝐡𝐞𝐦𝐞𝐝 *:･ﾟ✧*:･ﾟ✧
 import { readdirSync, statSync, unlinkSync, existsSync, readFileSync, watch, rmSync, promises as fsPromises } from "fs";
 const fs = { ...fsPromises, existsSync };
-import path, { join } from 'path' 
+import path, { join } from 'path'
 import ws from 'ws';
 
-let handler = async (m, { conn: _envio, command, usedPrefix, args, text, isOwner}) => {
+// ✦━━━━━━━━━━━━━✦
+let handler = async (m, { conn: _envio, command, usedPrefix, args, text, isOwner }) => {
 const isCommand1 = /^(deletesesion|deletebot|deletesession|deletesesaion)$/i.test(command)  
 const isCommand2 = /^(stop|pausarai|pausarbot)$/i.test(command)  
-const isCommand3 = /^(bots|sockets|socket)$/i.test(command)   
+const isCommand3 = /^(bots|sockets|socket)$/i.test(command)  
 
 async function reportError(e) {
-await m.reply(`${msm} Ocurrió un error.`)
-console.log(e)
+await m.reply(`✖️⛓️ ¡𝐎𝐡 𝐧𝐨! Ocurrió un error inesperado en el mundo de los espíritus...`)
+console.error(e)
 }
 
-switch (true) {       
-case isCommand1:
+// ╔═══[ 𝐂𝐨𝐦𝐚𝐧𝐝𝐨𝐬 𝐒𝐨𝐛𝐫𝐞𝐧𝐚𝐭𝐮𝐫𝐚𝐥𝐞𝐬 ]═══╗
+switch (true) {
+case isCommand1: {
 let who = m.mentionedJid && m.mentionedJid[0] ? m.mentionedJid[0] : m.fromMe ? conn.user.jid : m.sender
 let uniqid = `${who.split`@`[0]}`
 const path = `./${jadi}/${uniqid}`
 
 if (!await fs.existsSync(path)) {
-await conn.sendMessage(m.chat, { text: `${emoji} Usted no tiene una sesión, puede crear una usando:\n${usedPrefix + command}\n\nSi tiene una *(ID)* puede usar para saltarse el paso anterior usando:\n*${usedPrefix + command}* \`\`\`(ID)\`\`\`` }, { quoted: m })
+await conn.sendMessage(m.chat, { 
+text: `✖️ 𝑵𝒐 𝒆𝒙𝒊𝒔𝒕𝒆 𝒖𝒏𝒂 𝒔𝒆𝒔𝒊ó𝒏 𝒂𝒄𝒕𝒊𝒗𝒂. Puedes crear una con:\n${usedPrefix + command}\n\nSi tienes una *ID*, usa:\n*${usedPrefix + command}* \`\`\`(ID)\`\`\`` 
+}, { quoted: m })
 return
 }
-if (global.conn.user.jid !== conn.user.jid) return conn.sendMessage(m.chat, {text: `${emoji2} Use este comando al *Bot* principal.\n\n*https://api.whatsapp.com/send/?phone=${global.conn.user.jid.split`@`[0]}&text=${usedPrefix + command}&type=phone_number&app_absent=0*`}, { quoted: m }) 
-else {
-await conn.sendMessage(m.chat, { text: `${emoji} Tu sesión como *Sub-Bot* se ha eliminado` }, { quoted: m })}
+if (global.conn.user.jid !== conn.user.jid) {
+return conn.sendMessage(m.chat, {text: `❌ Usa este comando con el *Bot Principal*\n\n➡️ https://wa.me/${global.conn.user.jid.split`@`[0]}?text=${usedPrefix + command}`}, { quoted: m })
+} else {
+await conn.sendMessage(m.chat, { text: `☁️ La sesión como *Sub-Bot* ha sido eliminada por Hanako.` }, { quoted: m })
+}
 try {
 fs.rmdir(`./${jadi}/` + uniqid, { recursive: true, force: true })
-await conn.sendMessage(m.chat, { text : `${emoji3} Ha cerrado sesión y borrado todo rastro.` } , { quoted: m })
+await conn.sendMessage(m.chat, { text: `🌙✨ ¡Sesión cerrada y exorcizada exitosamente!` }, { quoted: m })
 } catch (e) {
 reportError(e)
-}  
+}
 break
+}
 
-case isCommand2:
-if (global.conn.user.jid == conn.user.jid) conn.reply(m.chat, `${emoji} Si no es *Sub-Bot* comuníquese al numero principal del *Bot* para ser *Sub-Bot*.`, m)
-else {
-await conn.reply(m.chat, `${emoji} ${botname} desactivada.`, m)
-conn.ws.close()}  
+case isCommand2: {
+if (global.conn.user.jid == conn.user.jid) {
+conn.reply(m.chat, `⚠️ No eres un *Sub-Bot* aún. Solicita acceso con el espíritu principal del *Bot*.`, m)
+} else {
+await conn.reply(m.chat, `🔮 ${botname} ha entrado en modo descanso eterno...`, m)
+conn.ws.close()
+}
 break
+}
 
-case isCommand3:
-//if (global.db.data.settings[conn.user.jid].jadibotmd) return m.reply(`${emoji} Este comando está desactivado por mi creador.`)
+case isCommand3: {
 const users = [...new Set([...global.conns.filter((conn) => conn.user && conn.ws.socket && conn.ws.socket.readyState !== ws.CLOSED).map((conn) => conn)])];
+
 function convertirMsADiasHorasMinutosSegundos(ms) {
 var segundos = Math.floor(ms / 1000);
 var minutos = Math.floor(segundos / 60);
@@ -53,30 +64,29 @@ segundos %= 60;
 minutos %= 60;
 horas %= 24;
 var resultado = "";
-if (días !== 0) {
-resultado += días + " días, ";
-}
-if (horas !== 0) {
-resultado += horas + " horas, ";
-}
-if (minutos !== 0) {
-resultado += minutos + " minutos, ";
-}
-if (segundos !== 0) {
-resultado += segundos + " segundos";
-}
+if (días) resultado += `${días} días, `;
+if (horas) resultado += `${horas} hrs, `;
+if (minutos) resultado += `${minutos} min, `;
+if (segundos) resultado += `${segundos} seg`;
 return resultado;
 }
-const message = users.map((v, index) => `• 「 ${index + 1} 」\n📎 Wa.me/${v.user.jid.replace(/[^0-9]/g, '')}?text=${usedPrefix}estado\n👤 Usuario: ${v.user.name || 'Sub-Bot'}\n🕑 Online: ${ v.uptime ? convertirMsADiasHorasMinutosSegundos(Date.now() - v.uptime) : 'Desconocido'}`).join('\n\n__________________________\n\n');
-const replyMessage = message.length === 0 ? `No hay Sub-Bots disponible por el momento, verifique mas tarde.` : message;
-const totalUsers = users.length;
-const responseMessage = `${emoji} LISTA DE *SUB-BOTS* ACTIVOS\n\n${emoji2} PUEDES PEDIR PERMISO PARA QUE TE DEJEN UNIR EL BOT A TÚ GRUPO\n\n\`\`\`CADA USUARIO SUB-BOT USA SUS FUNCIONES COMO QUIERA, EL NÚMERO PRINCIPAL NO SE HACE RESPONSABLE DEL USO DEL MAL USO DE ELLA \`\`\`\n\n*SUB-BOT CONECTADOS:* ${totalUsers || '0'}\n\n${replyMessage.trim()}`.trim();
+
+const message = users.map((v, index) => 
+`┏━━━━━━━━━━━━━━━┓\n🔸 𝕊𝕦𝕓-𝔹𝕠𝕥 #${index + 1}\n┣━ ☎️: wa.me/${v.user.jid.replace(/[^0-9]/g, '')}\n┣━ 👤 Usuario: ${v.user.name || 'Sub-Bot'}\n┗━ ⏰ Online: ${ v.uptime ? convertirMsADiasHorasMinutosSegundos(Date.now() - v.uptime) : 'Desconocido' }`
+).join('\n\n•━━━━━━✧━━━━━━•');
+
+const replyMessage = message.length === 0 
+? `✖️ No hay *Sub-Bots* conectados con la Academia Kamome...`
+: message;
+
+const responseMessage = `✦ 𝙻𝙸𝚂𝚃𝙰 𝙳𝙴 𝚂𝚄𝙱-𝙱𝙾𝚃𝚂 ✦\n\n✨ Puedes pedirle a un usuario que conecte el bot a tu grupo.\n\n⚠️ *El uso incorrecto del Sub-Bot es responsabilidad del usuario.*\n\n📡 Total Conectados: ${users.length || '0'}\n\n${replyMessage}`;
 await _envio.sendMessage(m.chat, {text: responseMessage, mentions: _envio.parseMention(responseMessage)}, {quoted: m})
-break   
+break
+}
 }}
 
 handler.tags = ['serbot']
 handler.help = ['sockets', 'deletesesion', 'pausarai']
-handler.command = ['deletesesion', 'deletebot', 'deletesession', 'deletesession', 'stop', 'pausarai', 'pausarbot', 'bots', 'sockets', 'socket']
+handler.command = ['deletesesion', 'deletebot', 'deletesession', 'deletesesaion', 'stop', 'pausarai', 'pausarbot', 'bots', 'sockets', 'socket']
 
 export default handler
