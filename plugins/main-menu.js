@@ -9,7 +9,7 @@ let handler = async (m, { conn, args }) => {
 
   let txt = `
 ╭┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈╮
-│  👻 𝙼𝚊𝚢𝚌𝚘𝚕𝙰𝙸𝚄𝚕𝚝𝚛𝚊𝙼𝙳 👻  
+│  👻 𝙼𝚊𝚢𝚌𝚘𝚕𝙰𝙸𝚄𝚕𝚝𝚛𝚊𝙼𝙳 👻
 ╰┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈╯
 
 ┊♡⃛◌°˚˖⋆࿔࿉༓ ༓࿉࿔⋆˖˚°◌⃛♡┊
@@ -356,6 +356,24 @@ let handler = async (m, { conn, args }) => {
 "Te concederé un deseo... ¿qué es lo que buscas?"
 `.trim()
 
+
+
+  // Mensaje previo con adReply
+  await conn.reply(m.chat, '¡𝐄𝐧𝐯𝐢𝐚𝐧𝐝𝐨 𝐦𝐢 𝐦𝐞𝐧𝐮! <𝟑', m, {
+    contextInfo: {
+      externalAdReply: {
+        title: botname,
+        body: "Un amor que nunca se acaba Jeje <3",
+        thumbnailUrl: banner,
+        sourceUrl: redes,
+        mediaType: 1,
+        showAdAttribution: true,
+        renderLargerThumbnail: true,
+      }
+    }
+  })
+
+  // Envío del menú en video
   await conn.sendMessage(m.chat, {
     video: { url: 'https://files.catbox.moe/d35acn.mp4' },
     caption: txt,
@@ -379,17 +397,4 @@ let handler = async (m, { conn, args }) => {
       },
     }
   }, { quoted: m })
-}
-
-handler.help = ['menu']
-handler.tags = ['main']
-handler.command = ['menu', 'menú', 'help', 'ayuda']
-
-export default handler
-
-function clockString(ms) {
-  let seconds = Math.floor((ms / 1000) % 60)
-  let minutes = Math.floor((ms / (1000 * 60)) % 60)
-  let hours = Math.floor((ms / (1000 * 60 * 60)) % 24)
-  return `${hours}h ${minutes}m ${seconds}s`
 }
