@@ -8,23 +8,24 @@ let handler = async (m, { conn, args }) => {
   let totalCommands = Object.values(global.plugins).filter((v) => v.help && v.tags).length
 
   let txt = `
-╭┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈╮
+╭┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈╮
 │  👻 𝙼𝚊𝚢𝚌𝚘𝚕𝙰𝙸𝚄𝚕𝚝𝚛𝚊𝙼𝙳 👻
-╰┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈╯
+╰┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈╯
 
 ┊♡⃛◌°˚˖⋆࿔࿉༓ ༓࿉࿔⋆˖˚°◌⃛♡┊
 
 🌸 ¡Konnichiwa, ${name}! Soy ${botname} ✿
-👻 ¡Hola! Jeje ^^, Te aviso que te puedes registrar con #reg SoyMaycol.17
+👻 ¡Hola ${name}! Jeje ^^, Te aviso que te puedes registrar con #reg ${name}.17
 
-╭┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈
+╭┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈
 │ 👤 Usuario » @${userId.split('@')[0]}
 │ 🔮 Estado » ${(conn.user.jid == global.conn.user.jid ? 'Principal' : 'Réplica')}
 │ ⏰ Activo » ${uptime}
 │ 👥 Usuarios » ${totalreg}
 │ 📜 Sellos » ${totalCommands}
 │ 🔄 Sistema » Multi Device
-╰┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈
+> Hecho por SoyMaycol <3
+╰┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈
 
 🔍 Usa #code o #qr para tenerme jeje <3
 
@@ -34,7 +35,7 @@ let handler = async (m, { conn, args }) => {
 ✦ ↓↓↓『 ⋆˚✿˖°SELLOS ESPIRITUALES˖°✿˚⋆ 』↓↓↓ ✦
 ≫───── ⋆✩⋆ ─────≪
 
-┏━━━━━━━━━━━━━━━┓
+┏━━━━━━━━━━━━━┓
 ┃     👻 𝙸𝙽𝙵𝙾-𝙱𝙾𝚃 👻     ┃
 ┃                         ┃
 ┃ ❈ #ayuda • #menu       ┃
@@ -56,9 +57,9 @@ let handler = async (m, { conn, args }) => {
 ┃ ❈ #sellos • #funciones ┃
 ┃ ❈ #limpiar • #fixmsg   ┃
 ┃ ❈ #editrespuesta       ┃
-┗━━━━━━━━━━━━━━━┛
+┗━━━━━━━━━━━━━┛
 
-┏━━━━━━━━━━━━━━━┓
+┏━━━━━━━━━━━━━┓
 ┃     🔍 BÚSQUEDAS 🔎     ┃
 ┃                         ┃
 ┃ ❈ #buscartiktok • #tts ┃
@@ -75,9 +76,9 @@ let handler = async (m, { conn, args }) => {
 ┃ ❈ #xvbuscar            ┃
 ┃ ❈ #phbuscar            ┃
 ┃ ❈ #npmjs               ┃
-┗━━━━━━━━━━━━━━━┛
+┗━━━━━━━━━━━━━┛
 
-┏━━━━━━━━━━━━━━━┓
+┏━━━━━━━━━━━━━┓
 ┃     📥 DESCARGAS 📥     ┃
 ┃                         ┃
 ┃ ❈ #tiktok • #tt        ┃
@@ -99,9 +100,9 @@ let handler = async (m, { conn, args }) => {
 ┃ ❈ #tiktokrandom        ┃
 ┃ ❈ #npmdl               ┃
 ┃ ❈ #playmp4             ┃
-┗━━━━━━━━━━━━━━━┛
+┗━━━━━━━━━━━━━┛
 
-┏━━━━━━━━━━━━━━━┓
+┏━━━━━━━━━━━━━┓
 ┃    💰 ECONOMÍA 💰      ┃
 ┃                         ┃
 ┃ ❈ #w • #trabajar       ┃
@@ -132,9 +133,9 @@ let handler = async (m, { conn, args }) => {
 ┃ ❈ #mazmorra • #explorar┃
 ┃ ❈ #halloween           ┃
 ┃ ❈ #christmas • #navidad┃
-┗━━━━━━━━━━━━━━━┛
+┗━━━━━━━━━━━━━┛
 
-┏━━━━━━━━━━━━━━━┓
+┏━━━━━━━━━━━━━┓
 ┃    🎴 YOKAI GACHA 🎴    ┃
 ┃                         ┃
 ┃ ❈ #rollwaifu • #rw     ┃
@@ -145,9 +146,9 @@ let handler = async (m, { conn, args }) => {
 ┃ ❈ #givechar • #regalar ┃
 ┃ ❈ #vote • #votar       ┃
 ┃ ❈ #waifusboard • #topyokais┃
-┗━━━━━━━━━━━━━━━┛
+┗━━━━━━━━━━━━━┛
 
-┏━━━━━━━━━━━━━━━┓
+┏━━━━━━━━━━━━━┓
 ┃    🔖 STICKERS 🔖      ┃
 ┃                         ┃
 ┃ ❈ #sticker • #s        ┃
@@ -159,9 +160,9 @@ let handler = async (m, { conn, args }) => {
 ┃ ❈ #brat • #ttp • #attp ┃
 ┃ ❈ #emojimix            ┃
 ┃ ❈ #wm                  ┃
-┗━━━━━━━━━━━━━━━┛
+┗━━━━━━━━━━━━━┛
 
-┏━━━━━━━━━━━━━━━┓
+┏━━━━━━━━━━━━━┓
 ┃    🛠️ HERRAMIENTAS 🛠️   ┃
 ┃                         ┃
 ┃ ❈ #calcular • #cal     ┃
@@ -181,9 +182,9 @@ let handler = async (m, { conn, args }) => {
 ┃ ❈ #maycode             ┃
 ┃ ❈ #mayteacher          ┃
 ┃ ❈ #html                ┃
-┗━━━━━━━━━━━━━━━┛
+┗━━━━━━━━━━━━━┛
 
-┏━━━━━━━━━━━━━━━┓
+┏━━━━━━━━━━━━━┓
 ┃      👤 PERFIL 👤       ┃
 ┃                         ┃
 ┃ ❈ #reg • #verificar    ┃
@@ -201,9 +202,9 @@ let handler = async (m, { conn, args }) => {
 ┃ ❈ #level • #lvl        ┃
 ┃ ❈ #comprarpremium • #premium┃
 ┃ ❈ #confesiones • #confesar┃
-┗━━━━━━━━━━━━━━━┛
+┗━━━━━━━━━━━━━┛
 
-┏━━━━━━━━━━━━━━━┓
+┏━━━━━━━━━━━━━┓
 ┃      👥 GRUPOS 👥       ┃
 ┃                         ┃
 ┃ ❈ #hidetag             ┃
@@ -235,9 +236,9 @@ let handler = async (m, { conn, args }) => {
 ┃ ❈ #invocar • #tagall   ┃
 ┃ ❈ #setemoji • #setemo  ┃
 ┃ ❈ #listnum • #kicknum  ┃
-┗━━━━━━━━━━━━━━━┛
+┗━━━━━━━━━━━━━┛
 
-┏━━━━━━━━━━━━━━━┓
+┏━━━━━━━━━━━━━┓
 ┃      👘 ANIME 👘       ┃
 ┃                         ┃
 ┃ ❈ #angry • #enojado    ┃
@@ -274,9 +275,9 @@ let handler = async (m, { conn, args }) => {
 ┃ ❈ #sleep               ┃
 ┃ ❈ #smoke               ┃
 ┃ ❈ #think               ┃
-┗━━━━━━━━━━━━━━━┛
+┗━━━━━━━━━━━━━┛
 
-┏━━━━━━━━━━━━━━━┓
+┏━━━━━━━━━━━━━┓
 ┃      🔞 NSFW 🔞        ┃
 ┃                         ┃
 ┃ ❈ #anal                ┃
@@ -300,9 +301,9 @@ let handler = async (m, { conn, args }) => {
 ┃ ❈ #suckboobs           ┃
 ┃ ❈ #undress • #encuerar ┃
 ┃ ❈ #yuri • #tijeras     ┃
-┗━━━━━━━━━━━━━━━┛
+┗━━━━━━━━━━━━━┛
 
-┏━━━━━━━━━━━━━━━┓
+┏━━━━━━━━━━━━━┓
 ┃      🎮 JUEGOS 🎮       ┃
 ┃                         ┃
 ┃ ❈ #amistad             ┃
@@ -339,9 +340,9 @@ let handler = async (m, { conn, args }) => {
 ┃ ❈ #ttt                 ┃
 ┃ ❈ #secreto             ┃
 ┃ ❈ #cuaderno            ┃
-┗━━━━━━━━━━━━━━━┛
+┗━━━━━━━━━━━━━┛
 
-┏━━━━━━━━━━━━━━━┓
+┏━━━━━━━━━━━━━┓
 ┃   🤖 IA's 🤖     ┃
 ┃                  ┃
 ┃ ❈ #goku          ┃
@@ -349,7 +350,7 @@ let handler = async (m, { conn, args }) => {
 ┃ ❈ #diego         ┃
 ┃ ❈ #mrbeast       ┃
 ┃ ❈ #abuela        ┃
-┗━━━━━━━━━━━━━━━┛
+┗━━━━━━━━━━━━━┛
 
 ┊♡⃛◌°˚˖⋆࿔࿉༓ ༓࿉࿔⋆˖˚°◌⃛♡┊
 
