@@ -36,6 +36,39 @@
 </details>
 ---
 
+# Instalación por Render
+
+Repositorio que debes poner:
+https://github.com/SoySapo6/MaycolAIUltraMD.git
+
+Build Command:
+```
+yarn install && npm install && npm update
+```
+
+Start Command & Run Command:
+```
+node server-render.js
+```
+
+> Luego ve a la url que te dio render y añadele:
+```
+/auth/s
+```
+ejemplo:
+```
+https://miweb.onrender.com/auth/s
+```
+> y no entiendes es porque estas tonto jsjsjs
+
+luego cuando te pida tu numero en ves de s pon tu numero de celular. 
+> Ejemplo:
+```
+https://miweb.onrender.com/auth/51921826391
+``
+
+---
+
 ### Instalacion por SYAHosting
 
 ```
