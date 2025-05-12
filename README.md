@@ -36,10 +36,17 @@
 </details>
 ---
 
-# Instalación por Render
 
-Repositorio que debes poner:
+# Instalacion por Render ₊˚⊹
+> Repositorio que debes poner:
 https://github.com/SoySapo6/MaycolAIUltraMD.git
+
+<p align="center">
+  <img src="https://files.catbox.moe/xnojvs.png" width="500">
+</p>
+
+<details>
+ <summary><b>Comandos 👨‍💻 </b></summary>
 
 Build Command:
 ```
@@ -66,8 +73,11 @@ luego cuando te pida tu numero en ves de s pon tu numero de celular.
 ```
 https://miweb.onrender.com/auth/51921826391
 ```
+   
+</details>
+
 ---
-### Instalacion por SYAHosting
+### Instalacion por SYAHosting 🌐
 
 ```
 git clone https://github.com/SoySapo6/MaycolAIUltraMD && cd MaycolAIUltraMD && npm install yarn -g && npx yarn install && npm install && npm update && mkdir temp && node --max-old-space-size=146 index.js
