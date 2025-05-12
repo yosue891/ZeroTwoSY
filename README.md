@@ -66,9 +66,7 @@ luego cuando te pida tu numero en ves de s pon tu numero de celular.
 ```
 https://miweb.onrender.com/auth/51921826391
 ```
-
 ---
-
 ### Instalacion por SYAHosting
 
 ```
