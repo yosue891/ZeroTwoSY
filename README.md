@@ -65,7 +65,7 @@ luego cuando te pida tu numero en ves de s pon tu numero de celular.
 > Ejemplo:
 ```
 https://miweb.onrender.com/auth/51921826391
-``
+```
 
 ---
 
