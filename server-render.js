@@ -44,9 +44,9 @@ function startBot() {
     console.log('Bot anterior detenido');
   }
 
-  const bot = spawn(process.execPath, ['--max-old-space-size=146', 'index.js'], {
-    stdio: ['pipe', 'inherit', 'inherit']
-  });
+  const bot = spawn('node', ['index.js'], {
+  stdio: ['pipe', 'inherit', 'inherit']
+});
 
   globalBot = bot;
 
