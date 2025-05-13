@@ -4,6 +4,7 @@ import { dirname, join } from 'path';
 import { spawn } from 'child_process';
 
 let globalBot = null;
+let botRestartInterval = null;
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
@@ -34,11 +35,16 @@ const server = app.listen(PORT, () => {
   console.log(`Servidor web iniciado en el puerto ${PORT}`);
 });
 
-// Función para iniciar el bot sin escribir número automáticamente
+// Función para iniciar el bot
 function startBot() {
-  console.log('Iniciando YukiBot-MD usando npm run code...');
+  console.log('Iniciando YukiBot-MD con --max-old-space-size=146...');
 
-  const bot = spawn('node', ['index.js'], {
+  if (globalBot) {
+    globalBot.kill();
+    console.log('Bot anterior detenido');
+  }
+
+  const bot = spawn(process.execPath, ['--max-old-space-size=146', 'index.js'], {
     stdio: ['pipe', 'inherit', 'inherit']
   });
 
@@ -51,12 +57,22 @@ function startBot() {
       setTimeout(startBot, 5000);
     }
   });
+
+  // Reinicio programado cada 30 minutos
+  if (botRestartInterval) clearInterval(botRestartInterval);
+  botRestartInterval = setInterval(() => {
+    console.log('Reiniciando bot automáticamente cada 30 minutos...');
+    startBot();
+  }, 30 * 60 * 1000); // 30 minutos
 }
 
 startBot();
 
+// Cierre del servidor y del bot
 process.on('SIGINT', () => {
   console.log('Cerrando servidor y bot...');
+  if (globalBot) globalBot.kill();
+  if (botRestartInterval) clearInterval(botRestartInterval);
   server.close(() => {
     process.exit(0);
   });
