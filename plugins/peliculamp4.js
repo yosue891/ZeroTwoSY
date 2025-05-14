@@ -1,11 +1,9 @@
 import fetch from 'node-fetch';
 
 const handler = async (m, { text, conn }) => {
-  if (!text) {
-    return conn.reply(m.chat, `
+  if (!text) return conn.reply(m.chat, `
 ✘ 「 𝑻𝑰́𝑻𝑼𝑳𝑶 𝑭𝑨𝑳𝑻𝑨𝑵𝑻𝑬 」
 ➤ Usa: *peliculamp4 <título>*`, m);
-  }
 
   const apiUrl = `https://nightapioficial.onrender.com/api/movies/info?title=${encodeURIComponent(text)}`;
 
@@ -19,41 +17,40 @@ const handler = async (m, { text, conn }) => {
     const res = await fetch(apiUrl);
     const json = await res.json();
 
-    if (!Array.isArray(json) || json.length === 0 || !json[0].enlace) {
-      throw new Error('No se encontró ningún resultado.');
+    if (!Array.isArray(json) || !json[0]?.enlace) {
+      throw new Error('Película no encontrada.');
     }
 
     const movie = json[0];
-    const url = movie.enlace;
+    const videoUrl = movie.enlace;
 
-    // Validamos que la URL del video responda
-    const head = await fetch(url, { method: 'HEAD' });
-    if (!head.ok) throw new Error('El enlace del video no responde.');
+    const head = await fetch(videoUrl, { method: 'HEAD' });
+    if (!head.ok) throw new Error('Enlace inválido o caído.');
 
+    const filename = `Hanako-${movie.nombre.slice(0, 30)}.mp4`;
     const caption = `
-╭─〔 ✦ 𝑷𝑬𝑳𝑰́𝑪𝑼𝑳𝑨 𝑬𝑵𝑪𝑶𝑵𝑻𝑹𝑨𝑫𝑨 ✦ 〕─╮
-┃🎬 *Título:* ${movie.nombre}
-┃📅 *Año:* ${movie.año}
-┃⭐ *Estrellas:* ${movie.estrellas}
-╰────────────────────────────╯
-`.trim();
+╭─〔 ✦ 𝑷𝑬𝑳𝑰́𝑪𝑼𝑳𝑨 ✦ 〕─╮
+┃🎬 ${movie.nombre}
+┃⭐ ${movie.estrellas} / 10
+┃📆 Año: ${movie.año}
+╰────────────────╯`.trim();
 
-    // Intentar enviar el video
-    await conn.sendMessage(m.chat, {
-      video: { url },
-      mimetype: 'video/*',
-      caption
-    }, { quoted: m });
-
+    await conn.sendFile(
+      m.chat,
+      videoUrl,
+      filename,
+      caption,
+      m,
+      false,
+      { mimetype: 'video/mp4' }
+    );
   } catch (e) {
-    console.error('[HanakoKun Error]', e);
-
+    console.error('[peliculamp4 error]', e);
     conn.reply(m.chat, `
-✘ 「 𝑬𝑹𝑹𝑶𝑹 𝑬𝑵 𝑬𝑵𝑽𝑰́𝑶 」
-➤ No se pudo enviar el video.
-➤ Aquí tienes el enlace para verlo o descargarlo:
-➤ ${e?.message?.includes('enlace') ? 'El video no existe o fue eliminado.' : 'Link directo:'}
-${e?.message?.includes('http') ? e.message : (json?.[0]?.enlace || 'No disponible')}
+✘ 「 ERROR AL ENVIAR 」
+➤ No pude enviar el video.
+➤ Puedes abrirlo tú desde aquí:
+${e?.message?.startsWith('http') ? e.message : '⛓️ ' + (json?.[0]?.enlace || 'No disponible')}
 `, m);
   }
 };
