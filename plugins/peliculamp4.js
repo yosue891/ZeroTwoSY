@@ -22,34 +22,46 @@ const handler = async (m, { text, conn }) => {
     const json = await res.json();
 
     if (!Array.isArray(json) || json.length === 0 || !json[0].enlace) {
-      throw new Error('Película no encontrada o enlace no válido');
+      throw new Error('Película no encontrada o enlace inválido');
     }
 
     const movie = json[0];
 
     const caption = `
-╭─〔 ✦ 𝑷𝑬𝑳𝑰́𝑪𝑼𝑳𝑨 𝑬𝑵𝑪𝑶𝑵𝑻𝑹𝑨𝑫𝑨 ✦ 〕─╮
-┃🎬 𝑻𝒊́𝒕𝒖𝒍𝒐: ${movie.nombre}
-┃📅 𝑨𝒏̃𝒐: ${movie.año}
-┃⭐ 𝑬𝒔𝒕𝒓𝒆𝒍𝒍𝒂𝒔: ${movie.estrellas}
-┃🖼️ 𝑰𝒎𝒂𝒈𝒆𝒏: ${movie.imagen}
-╰─────────────────────────────╯
-✦ 𝑯𝒂𝒏𝒂𝒌𝒐-𝒌𝒖𝒏 𝒕𝒆 𝒓𝒆𝒈𝒂𝒍𝒂 𝒆𝒔𝒕𝒂 𝒋𝒐𝒚𝒂 𝒄𝒊𝒏𝒆𝒇𝒊𝒍𝒂...
+╭──〔 ✦ 𝑷𝑬𝑳𝑰́𝑪𝑼𝑳𝑨 𝑬𝑵𝑪𝑶𝑵𝑻𝑹𝑨𝑫𝑨 ✦ 〕──╮
+┃🎬 *Título:* ${movie.nombre}
+┃📅 *Año:* ${movie.año}
+┃⭐ *Estrellas:* ${movie.estrellas}
+┃🐞 *Formato Detectado:* ${movie.enlace.split('.').pop()}
+╰──────────────────────────────╯
+> Hecho con NightAPI 🌌
+✦ 𝑯𝒂𝒏𝒂𝒌𝒐-𝒌𝒖𝒏 𝒕𝒆 𝒂𝒃𝒓𝒆 𝒍𝒂𝒔 𝒑𝒖𝒆𝒓𝒕𝒂𝒔 𝒅𝒆𝒍 𝒄𝒊𝒏𝒆...
 `.trim();
 
-    await conn.sendMessage(m.chat, {
-      video: { url: movie.enlace },
-      caption,
-      mimetype: 'video/*'
-    }, { quoted: m });
+    try {
+      // Envío del video con mimetype forzado y fallback
+      await conn.sendMessage(m.chat, {
+        video: { url: movie.enlace },
+        caption,
+        mimetype: 'video/*' // puedes cambiarlo a video/* para más flexibilidad
+      }, { quoted: m });
+    } catch (error) {
+      // En caso de error por tamaño o formato
+      await conn.reply(m.chat, `
+✘ 〔 ⚠️ 𝑬𝑹𝑹𝑶𝑹 𝑬𝑵 𝑬𝑵𝑽𝑰́𝑶 ⚠️ 〕
+┊ El video es muy pesado o no se pudo enviar directamente.
+┊ Puedes descargarlo manualmente desde este enlace:
+┊ ${movie.enlace}
+╰──────✦ 𝑯𝒂𝒏𝒂𝒌𝒐 𝒕𝒊𝒆𝒏𝒆 𝒔𝒖𝒔 𝒍𝒊́𝒎𝒊𝒕𝒆𝒔...`, m);
+    }
 
   } catch (e) {
     console.error('[Hanako Error]', e);
     return conn.reply(m.chat, `
-✘ 〔 ⚠️ 𝑯𝑨𝑵𝑨𝑲𝑶 𝑺𝑬 𝑬𝑵𝑪𝑶𝑵𝑻𝑹𝑶́ 𝑪𝑶𝑵 𝑼𝑵 𝑬𝑹𝑹𝑶𝑹 ⚠️ 〕
-┊ No se pudo recuperar la película *${text}*
-┊ Asegúrate que el título esté correcto o que el enlace no esté roto.
-╰──────𖤐 𝑳𝒂 𝒑𝒆𝒍𝒊́𝒄𝒖𝒍𝒂 𝒒𝒖𝒊𝒛𝒂́ 𝒂𝒖́𝒏 𝒆𝒔𝒕𝒆́ 𝒆𝒔𝒑𝒆𝒓𝒂𝒏𝒅𝒐 𝒓𝒆𝒏𝒂𝒄𝒆𝒓...`, m);
+✘ 〔 ⚠️ 𝑷𝑬𝑳𝑰́𝑪𝑼𝑳𝑨 𝑵𝑶 𝑬𝑵𝑪𝑶𝑵𝑻𝑹𝑨𝑫𝑨 ⚠️ 〕
+┊ No se pudo recuperar la película *${text}*.
+┊ Asegúrate de que exista o esté disponible.
+╰──────𖤐 𝑳𝒂 𝒄𝒊𝒏𝒆𝒎𝒂𝒈𝒊𝒂 𝒂𝒗𝒆𝒄𝒆𝒔 𝒇𝒂𝒍𝒍𝒂...`, m);
   }
 };
 
