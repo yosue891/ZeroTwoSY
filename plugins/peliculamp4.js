@@ -3,10 +3,8 @@ import fetch from 'node-fetch';
 const handler = async (m, { text, conn }) => {
   if (!text) {
     return conn.reply(m.chat, `
-✘ 〔 ⚠️ 𝑻𝑰́𝑻𝑼𝑳𝑶 𝑭𝑨𝑳𝑻𝑨𝑵𝑻𝑬 ⚠️ 〕
-┊ Usa: *peliculamp4 <título>*
-┊ Ej: *peliculamp4 Nosferatu*
-╰──────𖤐 𝑯𝒂𝒏𝒂𝒌𝒐 𝒆𝒔𝒕𝒂́ 𝒆𝒔𝒄𝒖𝒄𝒉𝒂𝒏𝒅𝒐...`, m);
+✘ 「 𝑻𝑰́𝑻𝑼𝑳𝑶 𝑭𝑨𝑳𝑻𝑨𝑵𝑻𝑬 」
+➤ Usa: *peliculamp4 <título>*`, m);
   }
 
   const apiUrl = `https://nightapioficial.onrender.com/api/movies/info?title=${encodeURIComponent(text)}`;
@@ -22,46 +20,41 @@ const handler = async (m, { text, conn }) => {
     const json = await res.json();
 
     if (!Array.isArray(json) || json.length === 0 || !json[0].enlace) {
-      throw new Error('Película no encontrada o enlace inválido');
+      throw new Error('No se encontró ningún resultado.');
     }
 
     const movie = json[0];
+    const url = movie.enlace;
+
+    // Validamos que la URL del video responda
+    const head = await fetch(url, { method: 'HEAD' });
+    if (!head.ok) throw new Error('El enlace del video no responde.');
 
     const caption = `
-╭──〔 ✦ 𝑷𝑬𝑳𝑰́𝑪𝑼𝑳𝑨 𝑬𝑵𝑪𝑶𝑵𝑻𝑹𝑨𝑫𝑨 ✦ 〕──╮
+╭─〔 ✦ 𝑷𝑬𝑳𝑰́𝑪𝑼𝑳𝑨 𝑬𝑵𝑪𝑶𝑵𝑻𝑹𝑨𝑫𝑨 ✦ 〕─╮
 ┃🎬 *Título:* ${movie.nombre}
 ┃📅 *Año:* ${movie.año}
 ┃⭐ *Estrellas:* ${movie.estrellas}
-┃🐞 *Formato Detectado:* ${movie.enlace.split('.').pop()}
-╰──────────────────────────────╯
-> Hecho con NightAPI 🌌
-✦ 𝑯𝒂𝒏𝒂𝒌𝒐-𝒌𝒖𝒏 𝒕𝒆 𝒂𝒃𝒓𝒆 𝒍𝒂𝒔 𝒑𝒖𝒆𝒓𝒕𝒂𝒔 𝒅𝒆𝒍 𝒄𝒊𝒏𝒆...
+╰────────────────────────────╯
 `.trim();
 
-    try {
-      // Envío del video con mimetype forzado y fallback
-      await conn.sendMessage(m.chat, {
-        video: { url: movie.enlace },
-        caption,
-        mimetype: 'video/*' // puedes cambiarlo a video/* para más flexibilidad
-      }, { quoted: m });
-    } catch (error) {
-      // En caso de error por tamaño o formato
-      await conn.reply(m.chat, `
-✘ 〔 ⚠️ 𝑬𝑹𝑹𝑶𝑹 𝑬𝑵 𝑬𝑵𝑽𝑰́𝑶 ⚠️ 〕
-┊ El video es muy pesado o no se pudo enviar directamente.
-┊ Puedes descargarlo manualmente desde este enlace:
-┊ ${movie.enlace}
-╰──────✦ 𝑯𝒂𝒏𝒂𝒌𝒐 𝒕𝒊𝒆𝒏𝒆 𝒔𝒖𝒔 𝒍𝒊́𝒎𝒊𝒕𝒆𝒔...`, m);
-    }
+    // Intentar enviar el video
+    await conn.sendMessage(m.chat, {
+      video: { url },
+      mimetype: 'video/*',
+      caption
+    }, { quoted: m });
 
   } catch (e) {
-    console.error('[Hanako Error]', e);
-    return conn.reply(m.chat, `
-✘ 〔 ⚠️ 𝑷𝑬𝑳𝑰́𝑪𝑼𝑳𝑨 𝑵𝑶 𝑬𝑵𝑪𝑶𝑵𝑻𝑹𝑨𝑫𝑨 ⚠️ 〕
-┊ No se pudo recuperar la película *${text}*.
-┊ Asegúrate de que exista o esté disponible.
-╰──────𖤐 𝑳𝒂 𝒄𝒊𝒏𝒆𝒎𝒂𝒈𝒊𝒂 𝒂𝒗𝒆𝒄𝒆𝒔 𝒇𝒂𝒍𝒍𝒂...`, m);
+    console.error('[HanakoKun Error]', e);
+
+    conn.reply(m.chat, `
+✘ 「 𝑬𝑹𝑹𝑶𝑹 𝑬𝑵 𝑬𝑵𝑽𝑰́𝑶 」
+➤ No se pudo enviar el video.
+➤ Aquí tienes el enlace para verlo o descargarlo:
+➤ ${e?.message?.includes('enlace') ? 'El video no existe o fue eliminado.' : 'Link directo:'}
+${e?.message?.includes('http') ? e.message : (json?.[0]?.enlace || 'No disponible')}
+`, m);
   }
 };
 
