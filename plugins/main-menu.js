@@ -37,10 +37,10 @@ for (let plugin of Object.values(global.plugins)) {
   for (let [tag, cmds] of Object.entries(categories)) {
     let tagName = tag.toUpperCase().replace(/_/g, ' ')
     menuText += `
-
-┏━【 ${tagName} 】━┓
+    
+┏━━━━•${tagName}•━━━━┓
 ${cmds.map(cmd => `┃ ❈ ${cmd}`).join('\n')}
-┗━━━━━━━━━━━━━━┛`
+┗━━━━•(=^●ω●^=)•━━━━┛`
   }
 
   // Mensaje previo
