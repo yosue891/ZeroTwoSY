@@ -365,7 +365,7 @@ let handler = async (m, { conn, args }) => {
       externalAdReply: {
         title: botname,
         body: "Un amor que nunca se acaba Jeje <3",
-        thumbnailUrl: banner,
+        thumbnailUrl: 'https://files.catbox.moe/x9hw62.png',
         sourceUrl: redes,
         mediaType: 1,
         showAdAttribution: true,
