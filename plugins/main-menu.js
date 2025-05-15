@@ -83,6 +83,7 @@ ${cmds.map(cmd => `┃ ❈ ${cmd}`).join('\n')}
     },
   }
 }, { quoted: m })
+}
   
 handler.help = ['menu']
 handler.tags = ['main']
