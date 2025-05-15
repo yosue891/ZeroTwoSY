@@ -7,15 +7,16 @@ let handler = async (m, { conn, args }) => {
   let totalreg = Object.keys(global.db.data.users).length
 
   // Agrupar comandos por categorías (tags)
-  let categories = {}
-  for (let plugin of Object.values(global.plugins)) {
-    if (!plugin.help || !plugin.tags) continue
-    for (let tag of plugin.tags) {
-      if (!categories[tag]) categories[tag] = []
-      categories[tag].push(...plugin.help.map(cmd => `${global.prefix[0]}${cmd}`))
-    }
+  // Agrupar comandos por categorías (tags)
+let categories = {}
+for (let plugin of Object.values(global.plugins)) {
+  if (!plugin.help || !plugin.tags) continue
+  for (let tag of plugin.tags) {
+    if (!categories[tag]) categories[tag] = []
+    categories[tag].push(...plugin.help.map(cmd => `#${cmd}`)) // Usamos '#' fijo aquí
   }
-
+}
+  
   // Formatear el menú
   let menuText = `
 ╭┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈╮
