@@ -60,7 +60,7 @@ ${cmds.map(cmd => `┃ ❈ ${cmd}`).join('\n')}
 
   // Envío del menú con video
   await conn.sendMessage(m.chat, {
-  video: { url: 'https://files.catbox.moe/8xhved.gif', gifPlayback: true },
+  video: { url: 'https://files.catbox.moe/i74z9e.mp4', gifPlayback: true },
   caption: menuText,
   gifPlayback: true,
   contextInfo: {
