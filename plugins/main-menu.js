@@ -60,30 +60,30 @@ ${cmds.map(cmd => `┃ ❈ ${cmd}`).join('\n')}
 
   // Envío del menú con video
   await conn.sendMessage(m.chat, {
-    video: { url: 'https://files.catbox.moe/i74z9e.mp4' },
-    caption: menuText,
-    contextInfo: {
-      mentionedJid: [m.sender, userId],
-      isForwarded: true,
-      forwardedNewsletterMessageInfo: {
-        newsletterJid: '120363372883715167@newsletter',
-        newsletterName: 'SoyMaycol <3',
-        serverMessageId: -1,
-      },
-      forwardingScore: 999,
-      externalAdReply: {
-        title: botname,
-        body: "Un amor que nunca se acaba Jeje <3",
-        thumbnailUrl: banner,
-        sourceUrl: redes,
-        mediaType: 1,
-        showAdAttribution: true,
-        renderLargerThumbnail: true,
-      },
-    }
-  }, { quoted: m })
-}
-
+  video: { url: 'https://files.catbox.moe/8xhved.gif', gifPlayback: true },
+  caption: txt,
+  gifPlayback: true,
+  contextInfo: {
+    mentionedJid: [m.sender, userId],
+    isForwarded: true,
+    forwardedNewsletterMessageInfo: {
+      newsletterJid: '120363372883715167@newsletter',
+      newsletterName: 'SoyMaycol <3',
+      serverMessageId: -1,
+    },
+    forwardingScore: 999,
+    externalAdReply: {
+      title: botname,
+      body: "Un amor que nunca se acaba Jeje <3",
+      thumbnailUrl: banner,
+      sourceUrl: redes,
+      mediaType: 1,
+      showAdAttribution: true,
+      renderLargerThumbnail: true,
+    },
+  }
+}, { quoted: m })
+  
 handler.help = ['menu']
 handler.tags = ['main']
 handler.command = ['menu', 'menú', 'help', 'ayuda']
