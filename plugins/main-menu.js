@@ -36,8 +36,8 @@ let handler = async (m, { conn, args }) => {
   let menuText = `
 ╭───❖ 𝓗𝓪𝓷𝓪𝓴𝓸 𝓑𝓸𝓽 ❖───╮
 
-        ｡ﾟ☆: *.${name}.* :☆ﾟ｡  
-     Bienvenido al Inframundo Jeje
+ ｡ﾟ☆: *.${name}.* :☆ﾟ｡  
+> *_${saludo}_*
 
 ╰─────❖ 𝓜𝓮𝓷𝓾 ❖─────╯
 
@@ -47,8 +47,7 @@ let handler = async (m, { conn, args }) => {
 👤 Espíritu: @${userId.split('@')[0]}
 ⏰ Tiempo activo: ${uptime}
 👥 Espíritus: ${totalreg} Espiritus
-
-> *_${saludo}_*
+⌚ Hora: ${hour}
 
 > Hecho con amor por: *_SoyMaycol_* (⁠◍⁠•⁠ᴗ⁠•⁠◍⁠)⁠❤
 
