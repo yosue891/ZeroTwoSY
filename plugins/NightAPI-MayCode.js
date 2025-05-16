@@ -1,87 +1,94 @@
 import axios from 'axios';
 
+const NIGHT_API_ENDPOINTS = [
+  'https://nightapioficial.onrender.com',
+  'https://nightapi-2a6l.onrender.com'
+];
+
+async function fetchMayCode(version, prompt) {
+  const paths = {
+    v1: `/api/maycode?messsge=${encodeURIComponent(prompt)}`,
+    v2: `/api/maycode/models/v2/?messsge=${encodeURIComponent(prompt)}`
+  };
+
+  for (let baseURL of NIGHT_API_ENDPOINTS) {
+    try {
+      const res = await axios.get(baseURL + paths[version]);
+      return res.data;
+    } catch (err) {
+      console.log(`❌ Falló ${baseURL}, probando siguiente...`);
+    }
+  }
+
+  throw new Error('Todas las instancias de NightAPI están fuera de servicio.');
+}
+
 const handler = async (m, { conn, text }) => {
   if (!text) {
-    conn.reply(m.chat, `⚠️ Te faltó el texto para usar *MayCode*, Usa --v2 Si Quieres usar el Modelo V2. Usa --v1 Si quieres usar el modelo V1.`, m);
+    conn.reply(m.chat, `⚠️ 𝙃𝙚𝙮 𝙘𝙤𝙣𝙚𝙟𝙞𝙩𝙤 ✨ Te faltó el texto para usar *MayCode* ✍️\n\nUsa:\n— *--v1* para el modelo básico\n— *--v2* para el modelo avanzado Hanako-Kawaii`, m);
     return;
   }
 
-  // Verificar qué versión se está solicitando
-  let version = 'v1'; // Versión por defecto
+  // Detectar versión
+  let version = 'v1';
   let prompt = text;
-  
-  // Comprobar si el texto comienza con un selector de versión
+
   if (text.startsWith('--v1 ')) {
     version = 'v1';
-    prompt = text.substring(5).trim(); // Eliminar "--v1 " del texto
+    prompt = text.substring(5).trim();
   } else if (text.startsWith('--v2 ')) {
     version = 'v2';
-    prompt = text.substring(5).trim(); // Eliminar "--v2 " del texto
+    prompt = text.substring(5).trim();
   }
 
-  // Mensaje de procesamiento
-  await conn.reply(m.chat, `🌃 \`NightAPI\` 🌃
+  // Mensaje de espera
+  await conn.reply(m.chat, `━━━━━━━━━━━━━━━━━━━━━  
+✧･ﾟ: *✧･ﾟ:* *𝙈𝙖𝙮𝘾𝙤𝙙𝙚* *:･ﾟ✧*:･ﾟ✧  
+━━━━━━━━━━━━━━━━━━━━━  
 
-*Espera Que estoy Procesando tu Petición* ⏱️
-*Modelo:* MayCode ${version}
-
-> Hecho por SoyMaycol <3`, m);
+(⁠◍⁠•⁠ᴗ⁠•⁠◍⁠)⁠❤ *Espérame que estoy pensando código mágico...*  
+*Modelo:* MayCode ${version}  
+✨ Hecho con amor por *SoyMaycol* ✨  
+━━━━━━━━━━━━━━━━━━━━━`, m);
 
   try {
-    let res;
-    
-    // Seleccionar la URL según la versión
-    if (version === 'v1') {
-      res = await axios.get(`https://nightapioficial.onrender.com/api/maycode?messsge=${encodeURIComponent(prompt)}`);
-      const { User, MayCode, Code } = res.data;
+    const data = await fetchMayCode(version, prompt);
 
-      const respuesta = `💻 *_MayCode ${version}_* 💻
+    const { User = prompt, MayCode = data.response, Code = data.code } = data;
 
-*Tu:* ${User}
+    const respuesta = `
+*┏━━━━━━✦°•✦°•✦━━━━━━┓*
+   『 𝗠𝗔𝗬𝗖𝗢𝗗𝗘 ${version.toUpperCase()} 』
+*┗━━━━━━✦°•✦°•✦━━━━━━┛*
 
-*MayCode:* ${MayCode}
+╭───────────────╮  
+│ 🧑‍💻 𝙏𝙪: *${User}*  
+│ ✨ 𝙈𝙖𝙮𝘾𝙤𝙙𝙚: *${MayCode}*  
+╰───────────────╯
 
-*Código Que Dio MayCode 💻:* 
+⊹︰𝗖𝗼𝗱𝗶𝗴𝗼 𝗘𝗻𝘁𝗿𝗲𝗴𝗮𝗱𝗼:
 \`\`\`
 ${Code}
 \`\`\`
 
-> Usando NightAPI 🌃`;
+> (｡･ω･｡)ﾉ♡ Usando NightAPI — powered by Hanako-kun
 
-      await conn.sendMessage(m.chat, { text: respuesta }, { quoted: m });
+━━━━━━━━━━━━━━━━━━━━━`;
 
-    } else if (version === 'v2') {
-      res = await axios.get(`https://nightapioficial.onrender.com/api/maycode/models/v2/?messsge=${encodeURIComponent(prompt)}`);
-      
-      // Procesar respuesta del modelo v2
-      // Asumiendo que tiene una estructura similar al v1, ajustar según sea necesario
-      const { User = prompt, MayCode = res.data.response, Code = res.data.code } = res.data;
+    await conn.sendMessage(m.chat, { text: respuesta }, { quoted: m });
 
-      const respuesta = `💻 *_MayCode ${version}_* 💻
-
-*Tu:* ${User}
-
-*MayCode:* ${MayCode}
-
-*Código Que Dio MayCode 💻:* 
-\`\`\`
-${Code}
-\`\`\`
-
-> Usando NightAPI 🌃`;
-
-      await conn.sendMessage(m.chat, { text: respuesta }, { quoted: m });
-    }
-
-  } catch (error) {
-    console.error(error);
-
+  } catch (err) {
+    console.error(err);
     await conn.sendMessage(m.chat, {
-      text: `🌃 \`NightAPI\` 🌃
+      text: `⊹⊱⋛⋋(◍'◊'◍)⋌⋚⊰⊹
 
-🚫 Uh, Ha pasado un error. Intente de nuevo más tarde 🚫
+(｡╯︵╰｡) Ay no… ¡algo falló con NightAPI!
 
-> Hecho por SoyMaycol <3`
+Las dos instancias están caídas…  
+Vuelve a intentarlo más tarde, konpeito~
+
+> Código con amor por *SoyMaycol* ✨
+`
     }, { quoted: m });
   }
 };
