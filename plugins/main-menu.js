@@ -26,19 +26,20 @@ let handler = async (m, { conn, args }) => {
   // MENÚ DECORATIVO HANAKO-KUN STYLE
   let menuText = `
 ╭───────⊹⊱✫⊰⊹───────╮
+
     ✧ ${name} ✧  
   Ven a ver estos Hechizos
-  Jeje ^^
+  
 ╰───────⊹⊱✫⊰⊹───────╯
 
 ✎ 𝙸𝙽𝙵𝙾𝚁𝙼𝙰𝙲𝙸𝙾𝙽 ✎
 
 💻 Sistema: Multi-Device
-👤 Usuario espiritual: @${userId.split('@')[0]}
-⏰ Tiempo en el otro mundo: ${uptime}
-👥 Almas conectadas: ${totalreg}
+👤 Espíritu: @${userId.split('@')[0]}
+⏰ Tiempo: ${uptime}
+👥 Espíritus: ${totalreg} Espíritus
 
-> ${saludo}
+> *_${saludo}_* Jeje <3
  
 ℍ𝕒𝕫𝕥𝕖 ℍ𝕒𝕟𝕒𝕜𝕠𝔹𝕠𝕥 𝕔𝕠𝕟 #𝕔𝕠𝕕𝕖 𝕠 #𝕢𝕣 𝕛𝕖𝕛𝕖 <𝟛
 ≪──── ⋆𓆩✧𓆪⋆ ────≫
