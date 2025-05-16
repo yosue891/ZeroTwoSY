@@ -29,7 +29,7 @@ let handler = async (m, { conn, args }) => {
 
   // MENÚ HANAKO-KUN STYLE
   let menuText = `
-╭─────❖ 𝓗𝓪𝓷𝓪𝓴𝓸 𝓑𝓸𝓽 ❖─────╮
+╭───❖ 𝓗𝓪𝓷𝓪𝓴𝓸 𝓑𝓸𝓽 ❖───╮
 
         ｡ﾟ☆: *.${name}.* :☆ﾟ｡  
      Bienvenido al Inframundo Jeje
@@ -41,9 +41,10 @@ let handler = async (m, { conn, args }) => {
 💻 Sistema: Multi-Device
 👤 Espíritu: @${userId.split('@')[0]}
 ⏰ Tiempo activo: ${uptime}
-👥 Espíritus registrados: ${totalreg}
+👥 Espíritus: ${totalreg} Espiritus
 
 > *_${saludo}_*
+
 > Hecho con amor por: *_SoyMaycol_* (⁠◍⁠•⁠ᴗ⁠•⁠◍⁠)⁠❤
 
 ≪──── ⋆𓆩✧𓆪⋆ ────≫
@@ -54,9 +55,9 @@ let handler = async (m, { conn, args }) => {
     let deco = emojiRandom()
     menuText += `
 
-╭─━━━━ ${deco} ${tagName} ${deco} ━━━━╮
-${cmds.map(cmd => `│ ✧ ${cmd}`).join('\n')}
-╰─━━━━━━━━━━━━━━━━━━━━━━╯`
+╭─━━━ ${deco} ${tagName} ${deco} ━━━╮
+${cmds.map(cmd => `│ ➯ ${cmd}`).join('\n')}
+╰─━━━━━━━━━━━━━━━━━━━━╯`
   }
 
   // Mensaje previo cute
