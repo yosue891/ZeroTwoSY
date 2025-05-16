@@ -58,13 +58,16 @@ ${cmds.map(cmd => `│ ✧ ${cmd}`).join('\n')}
 
   // Mensaje previo con botón flotante tipo "quick reply"
   await conn.sendMessage(m.chat, {
-    text: "♡ 𝔼𝕤𝕡𝕖𝕣𝕒 𝕦𝕟 𝕥𝕚𝕖𝕞𝕡𝕠 𝕖𝕤𝕡𝕚𝕣𝕚𝕥𝕦𝕒𝕝 𝕛𝕖𝕛𝕖 <𝟛 ♡",
-    footer: "Hanako está invocando tu menú...",
-    buttons: [
-      { buttonId: '#staff', buttonText: { displayText: '📞 Llamar a Staff' }, type: 1 }
-    ],
-    headerType: 1
-  }, { quoted: m })
+  text: "♡ 𝔼𝕤𝕡𝕖𝕣𝕒 𝕦𝕟 𝕥𝕚𝕖𝕞𝕡𝕠 𝕖𝕤𝕡𝕚𝕣𝕚𝕥𝕦𝕒𝕝 𝕛𝕖𝕛𝕖 <𝟛 ♡",
+  buttons: [
+    {
+      buttonId: '#staff',
+      buttonText: { displayText: '📞 Llamar a Staff' },
+      type: 1
+    }
+  ],
+  headerType: 1
+}, { quoted: m })
 
   // Envío del menú con video
   await conn.sendMessage(m.chat, {
