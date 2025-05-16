@@ -26,19 +26,21 @@ let handler = async (m, { conn, args }) => {
   // MENÚ DECORATIVO HANAKO-KUN STYLE
   let menuText = `
 ╭───────⊹⊱✫⊰⊹───────╮
-    ✧ ${saludo}, ${name} ✧  
-   Te habla Hanako-kun desde el  
-        baño embrujado ᓚᘏᗢ  
+    ✧ ${name} ✧  
+  Ven a ver estos Hechizos
+  Jeje ^^
 ╰───────⊹⊱✫⊰⊹───────╯
 
-(⁠◍⁠•⁠ᴗ⁠•⁠◍⁠)⁠❤ ¡Estoy feliz de verte!
-⊂(・▽・⊂) Sistema: Multi-Device
-✧ Usuario espiritual: @${userId.split('@')[0]}
-✧ Tiempo en el otro mundo: ${uptime}
-✧ Almas conectadas: ${totalreg}
+✎ 𝙸𝙽𝙵𝙾𝚁𝙼𝙰𝙲𝙸𝙾𝙽 ✎
 
-𓆩♡𓆪 Bienvenido a mi Reino Maldito  
-⌜ 𝑀𝑒𝑛𝑢 𝑀á𝑔𝑖𝑐𝑜 𝑑𝑒 𝒸𝑜𝓂𝒶𝓃𝒹𝑜𝓈 ⌟  
+💻 Sistema: Multi-Device
+👤 Usuario espiritual: @${userId.split('@')[0]}
+⏰ Tiempo en el otro mundo: ${uptime}
+👥 Almas conectadas: ${totalreg}
+
+> ${saludo}
+ 
+ℍ𝕒𝕫𝕥𝕖 ℍ𝕒𝕟𝕒𝕜𝕠𝔹𝕠𝕥 𝕔𝕠𝕟 #𝕔𝕠𝕕𝕖 𝕠 #𝕢𝕣 𝕛𝕖𝕛𝕖 <𝟛
 ≪──── ⋆𓆩✧𓆪⋆ ────≫
 `.trim()
 
@@ -52,7 +54,7 @@ ${cmds.map(cmd => `│ ✧ ${cmd}`).join('\n')}
   }
 
   // Mensaje previo
-  await conn.reply(m.chat, '(｡･ω･｡)ﾉ♡ Enviando el menú mágico de Hanako-kun… ¡prepárate para lo paranormal!', m, {
+  await conn.reply(m.chat, '♡ 𝔼𝕤𝕡𝕖𝕣𝕒𝕞𝕖 𝕥𝕒𝕟𝕥𝕚𝕥𝕠 𝕛𝕖𝕛𝕖 <𝟛 ♡', m, {
     contextInfo: {
       externalAdReply: {
         title: botname,
