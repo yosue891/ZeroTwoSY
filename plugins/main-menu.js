@@ -39,7 +39,8 @@ let handler = async (m, { conn, args }) => {
 ⏰ Tiempo: ${uptime}
 👥 Espíritus: ${totalreg} Espíritus
 
-> *_${saludo}_* Jeje <3
+> *_${saludo} Jeje <3_*
+> 🇯🇵 Hecho por *_SoyMaycol_*
  
 ℍ𝕒𝕫𝕥𝕖 ℍ𝕒𝕟𝕒𝕜𝕠𝔹𝕠𝕥 𝕔𝕠𝕟 #𝕔𝕠𝕕𝕖 𝕠 #𝕢𝕣 𝕛𝕖𝕛𝕖 <𝟛
 ≪──── ⋆𓆩✧𓆪⋆ ────≫
