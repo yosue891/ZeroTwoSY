@@ -57,7 +57,7 @@ let handler = async (m, { conn, args }) => {
 
 ╭─━━━ ${deco} ${tagName} ${deco} ━━━╮
 ${cmds.map(cmd => `│ ➯ ${cmd}`).join('\n')}
-╰─━━━━━━━━━━━━━━━━━━━━╯`
+╰─━━━━━━━━━━━━━━━━━━╯`
   }
 
   // Mensaje previo cute
