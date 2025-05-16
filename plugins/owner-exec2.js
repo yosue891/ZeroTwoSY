@@ -1,4 +1,4 @@
-import cp, {exec as _exec} from 'child_process';
+/* import cp, {exec as _exec} from 'child_process';
 import {promisify} from 'util';
 const exec = promisify(_exec).bind(cp);
 const handler = async (m, {conn, isOwner, command, text, usedPrefix, args, isROwner}) => {
