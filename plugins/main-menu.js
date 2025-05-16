@@ -6,14 +6,14 @@ let handler = async (m, { conn, args }) => {
   let uptime = clockString(_uptime)
   let totalreg = Object.keys(global.db.data.users).length
 
-  // Saludo por hora (versión mejorada)
+  // Saludo decorado
   let hour = new Date().getHours()
   let saludo = hour < 6 ? "🌌 Buenas madrugadas, espíritu insomne..." :
-               hour < 12 ? "🌅 Buenos días, alma tempranera~" :
-               hour < 18 ? "🌄 Buenas tardes, viajero del más allá~" :
-               "🌃 Buenas noches, espíritu nocturno~"
+               hour < 12 ? "🌅 Buenos días, alma luminosa~" :
+               hour < 18 ? "🌄 Buenas tardes, viajero astral~" :
+               "🌃 Buenas noches, sombra errante~"
 
-  // Agrupar comandos por categorías (tags)
+  // Agrupar comandos por categorías
   let categories = {}
   for (let plugin of Object.values(global.plugins)) {
     if (!plugin.help || !plugin.tags) continue
@@ -23,18 +23,20 @@ let handler = async (m, { conn, args }) => {
     }
   }
 
-  // Emojis decorativos para las categorías
-  let decoEmojis = ['✨', '🌸', '👻', '⭐', '🔮', '🍥', '☁️', '⛩️', '🪄']
+  // Emojis random por categoría
+  let decoEmojis = ['✨', '🌸', '👻', '⭐', '🔮', '💫', '☁️', '🦋', '🪄']
   let emojiRandom = () => decoEmojis[Math.floor(Math.random() * decoEmojis.length)]
 
-  // MENÚ DECORATIVO HANAKO-KUN STYLE
+  // MENÚ HANAKO-KUN STYLE
   let menuText = `
-╭───────⊹⊱✫⊰⊹───────╮
-     ✧ ${name} ✧  
-   Ven a ver estos Hechizos
-╰───────⊹⊱✫⊰⊹───────╯
+╭─────❖ 𝓗𝓪𝓷𝓪𝓴𝓸 𝓑𝓸𝓽 ❖─────╮
 
-✎ 𝙸𝙽𝙵𝙾𝚁𝙼𝙰𝙲𝙸𝙾𝙽 ✎
+        ｡ﾟ☆: *.${name}.* :☆ﾟ｡  
+     Bienvenido al Inframundo Jeje
+
+╰─────❖ 𝓜𝓮𝓷𝓾 ❖─────╯
+
+✦ 𝙸𝙽𝙵𝙾 𝙳𝙴 𝚂𝚄𝙼𝙾𝙽 ✦
 
 💻 Sistema: Multi-Device
 👤 Espíritu: @${userId.split('@')[0]}
@@ -42,34 +44,37 @@ let handler = async (m, { conn, args }) => {
 👥 Espíritus registrados: ${totalreg}
 
 > *_${saludo}_*
-> 🇯🇵 Hecho con amor por *_SoyMaycol_*
- 
-ℍ𝕒𝕫𝕥𝕖 ℍ𝕒𝕟𝕒𝕜𝕠𝔹𝕠𝕥 𝕔𝕠𝕟 #𝕔𝕠𝕕𝕖 𝕠 #𝕢𝕣 𝕛𝕖𝕛𝕖 <𝟛
-≪──── ⋆𓆩✧𓆪⋆ ────≫`.trim()
+> Hecho con amor por: *_SoyMaycol_* (⁠◍⁠•⁠ᴗ⁠•⁠◍⁠)⁠❤
+
+≪──── ⋆𓆩✧𓆪⋆ ────≫
+`.trim()
 
   for (let [tag, cmds] of Object.entries(categories)) {
     let tagName = tag.toUpperCase().replace(/_/g, ' ')
+    let deco = emojiRandom()
     menuText += `
 
-╭─━━━✦ ${emojiRandom()} ${tagName} ${emojiRandom()} ✦━━━─╮
+╭─━━━━ ${deco} ${tagName} ${deco} ━━━━╮
 ${cmds.map(cmd => `│ ✧ ${cmd}`).join('\n')}
-╰─━━━━━⊹⊱✫⊰⊹━━━━━─╯`
+╰─━━━━━━━━━━━━━━━━━━━━━━╯`
   }
 
-  // Mensaje previo con botón flotante tipo "quick reply"
-  await conn.sendMessage(m.chat, {
-  text: "♡ 𝔼𝕤𝕡𝕖𝕣𝕒 𝕦𝕟 𝕥𝕚𝕖𝕞𝕡𝕠 𝕖𝕤𝕡𝕚𝕣𝕚𝕥𝕦𝕒𝕝 𝕛𝕖𝕛𝕖 <𝟛 ♡",
-  buttons: [
-    {
-      buttonId: '#staff',
-      buttonText: { displayText: '📞 Llamar a Staff' },
-      type: 1
+  // Mensaje previo cute
+  await conn.reply(m.chat, '⌜ ⊹ Espera tantito, espíritu curioso... ⊹ ⌟', m, {
+    contextInfo: {
+      externalAdReply: {
+        title: botname,
+        body: "Un amor que nunca se acaba Jeje <3",
+        thumbnailUrl: 'https://files.catbox.moe/x9hw62.png',
+        sourceUrl: redes,
+        mediaType: 1,
+        showAdAttribution: true,
+        renderLargerThumbnail: true,
+      }
     }
-  ],
-  headerType: 1
-}, { quoted: m })
+  })
 
-  // Envío del menú con video
+  // Enviar menú con video estilo gif
   await conn.sendMessage(m.chat, {
     video: { url: 'https://files.catbox.moe/i74z9e.mp4', gifPlayback: true },
     caption: menuText,
@@ -107,4 +112,4 @@ function clockString(ms) {
   let m = Math.floor(ms / 60000) % 60
   let s = Math.floor(ms / 1000) % 60
   return `${h}h ${m}m ${s}s`
-                                                }
+}
