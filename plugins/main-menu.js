@@ -1,3 +1,6 @@
+// ♥ 𝙼𝚎𝚗𝚞 𝚍𝚎 𝚂𝚘𝚢𝙼𝚊𝚢𝚌𝚘𝚕 ♥
+// ᵁˢᵃ ᵉˢᵗᵉ ᶜᵒᵈⁱᵍᵒ ˢⁱᵉᵐᵖʳᵉ ᶜᵒⁿ ᶜʳᵉᵈⁱᵗᵒˢ
+
 let handler = async (m, { conn, args }) => {
   let userId = m.mentionedJid?.[0] || m.sender
   let user = global.db.data.users[userId]
