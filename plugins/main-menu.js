@@ -7,7 +7,12 @@ let handler = async (m, { conn, args }) => {
   let totalreg = Object.keys(global.db.data.users).length
 
   // Saludo decorado
-  let hour = new Date().getHours()
+  let hour = new Intl.DateTimeFormat('es-PE', {
+  hour: 'numeric',
+  hour12: false,
+  timeZone: 'America/Lima'
+}).format(new Date())
+  
   let saludo = hour < 6 ? "🌌 Buenas madrugadas, espíritu insomne..." :
                hour < 12 ? "🌅 Buenos días, alma luminosa~" :
                hour < 18 ? "🌄 Buenas tardes, viajero astral~" :
