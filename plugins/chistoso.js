@@ -14,9 +14,9 @@ const handler = async (m, { conn }) => {
   }
 };
 
-handler.help = ['chistoso'];
+handler.help = ['chiste2'];
 handler.tags = ['fun'];
-handler.command = ['chistoso'];
+handler.command = ['chiste2'];
 handler.register = true;
 
 export default handler;
