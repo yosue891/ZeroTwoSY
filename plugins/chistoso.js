@@ -8,15 +8,15 @@ const chistes = [
 
 const handler = async (m, { conn }) => {
   const texto = m.text || '';
-  if (/chistoso/i.test(texto)) {
+  if (/chistemalo/i.test(texto)) {
     const chisteAleatorio = chistes[Math.floor(Math.random() * chistes.length)];
     await conn.reply(m.chat, chisteAleatorio, m);
   }
 };
 
-handler.help = ['chiste2'];
+handler.help = ['chistemalo'];
 handler.tags = ['fun'];
-handler.command = ['chiste2'];
+handler.command = ['chistemalo'];
 handler.register = true;
 
 export default handler;
