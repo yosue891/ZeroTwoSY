@@ -19,7 +19,7 @@ const handler = async (m, { conn }) => {
       const fraseAleatoria = frasesDePoeta[Math.floor(Math.random() * frasesDePoeta.length)];
 
       // 3. Construir la URL de la API con la frase aleatoria
-      const apiUrl = `https://nightapi-6hbx.onrender.com/api/mayeditor?url=https://files.catbox.moe/3xw9rx.png&texto=${encodeURIComponent(fraseAleatoria)}&textodireccion=Arriba%20Izquierda&opacity=0.8&fontsize=60`;
+      const apiUrl = `https://nightapi-6hbx.onrender.com/api/mayeditor?url=https://files.catbox.moe/vf6lhl.png&texto=${encodeURIComponent(fraseAleatoria)}&textodireccion=Arriba%20Izquierda&opacity=0.8&fontsize=60`;
 
       // 4. Hacer la petición a la API
       const response = await fetch(apiUrl);
