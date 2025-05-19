@@ -10,7 +10,7 @@ const handler = async (m, { args, conn }) => {
   if (!args[0]) return conn.reply(m.chat, '✘ 「 𝙁𝙖𝙡𝙩𝙖 𝙚𝙡 𝙚𝙣𝙡𝙖𝙘𝙚 」\n➤ Usa: *playmp4 https://youtu.be/xxxx*', m)
 
   const url = args[0]
-  const api = `https://nightapioficial.onrender.com/api/ytvideo?url=${encodeURIComponent(url)}&format=mp4&quality=720p`
+  const api = `https://nightapi-6hbx.onrender.com/api/ytvideo?url=${encodeURIComponent(url)}&format=mp4&quality=720p`
 
   await conn.reply(m.chat, `
 ╭━━━━〔 𝑯𝑨𝑵𝑨𝑲𝑶 𝑬𝑺𝑻Á 𝑬𝑵 𝑨𝑪𝑪𝑰Ó𝑵 〕━━━━╮
