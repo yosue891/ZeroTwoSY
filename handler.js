@@ -559,16 +559,66 @@ let user2 = m.pushName || 'Anónimo'
 let verifyaleatorio = ['registrar', 'reg', 'verificar', 'verify', 'register'].getRandom()
 
 const msg = {
-rowner: `『✦』El comando *${comando}* solo puede ser usado por los creadores del bot.`, 
-owner: `『✦』El comando *${comando}* solo puede ser usado por los desarrolladores del bot.`, 
-mods: `『✦』El comando *${comando}* solo puede ser usado por los moderadores del bot.`, 
-premium: `『✦』El comando *${comando}* solo puede ser usado por los usuarios premium.`, 
-group: `『✦』El comando *${comando}* solo puede ser usado en grupos.`,
-private: `『✦』El comando *${comando}* solo puede ser usado al chat privado del bot.`,
-admin: `『✦』El comando *${comando}* solo puede ser usado por los administradores del grupo.`, 
-botAdmin: `『✦』Para ejecutar el comando *${comando}* debo ser administrador del grupo.`,
-unreg: `『✦』El comando *${comando}* solo puede ser usado por los usuarios registrado, registrate usando:\n> » #${verifyaleatorio} ${user2}.${edadaleatoria}`,
-restrict: `『✦』Esta caracteristica está desactivada.`
+  rowner: `
+╔═══════❖『 ✦ HANAKO-SAMA ✦ 』❖═══════╗
+║ (≖ᴗ≖✿) El hechizo *${comando}* solo puede ser
+║ invocado por los Dioses del retrete (creadores).
+╚════════════════════════════════════╝`,
+
+  owner: `
+╭─┈ ✦『 Control Paranormal 』✦ ┈─╮
+│ ⛧ *${comando}* está reservado para los  
+│ shinigamis programadores (desarrolladores).  
+╰───────────────────────────────╯`,
+
+  mods: `
+╔═──「 ✧ Espíritus Vigilantes ✧ 」──═╗
+║ Sólo los protectores del otro mundo (mods)  
+║ pueden controlar el hechizo *${comando}*.  
+╚════════════════════════════════════╝`,
+
+  premium: `
+╭───✿『 ✦ ✧ MOCHI PREMIUM ✧ ✦ 』✿───╮
+│ (◍•ᴗ•◍)❤ Solo almas elegidas pueden usar  
+│ el comando sagrado *${comando}*.  
+╰──────────────────────────────────╯`,
+
+  group: `
+╔═━「 ☁︎ Ritual Grupal ☁︎ 」━═╗
+║ (⁎⁍̴̛ᴗ⁍̴̛⁎) *${comando}* requiere un círculo  
+║ de invocación múltiple (grupo).  
+╚═════════════════════════════╝`,
+
+  private: `
+╭──⊹⊱『 ☁︎ Susurro Privado ☁︎ 』⊰⊹──╮
+│ Este hechizo *${comando}* solo puede ser  
+│ revelado en un santuario secreto (chat privado).  
+╰─────────────────────────────────────╯`,
+
+  admin: `
+╭────『 ✦ Líder Espiritual ✦ 』────╮
+│ El comando *${comando}* sólo responde a  
+│ los shamanes del grupo (admins).  
+╰─────────────────────────────╯`,
+
+  botAdmin: `
+(╥﹏╥) ¡Ay no!  
+No puedo usar *${comando}* si no soy un  
+espíritu superior (admin del grupo).  
+¡Dame poder MUAJAJAJA o me encierro en el baño para siempre >:(`,
+
+  unreg: `
+╔══『 ✦ PACTO FANTASMAL ✦ 』══╗
+║ (｡•́︿•̀｡) No puedes usar *${comando}*  
+║ hasta que firmes tu contrato espiritual.
+║ Usa el ritual:
+║ » #${verifyaleatorio} ${user2}.${edadaleatoria}
+╚═══════════════════════════╝`,
+
+  restrict: `
+⊱┈・『 ✦ FUNCIÓN SELLADA ✦ 』・┈⊰  
+(⚆_⚆) Este hechizo está encerrado por  
+un sello maldito. ¡Actívalo si te atreves!`
 }[type];
 if (msg) return m.reply(msg).then(_ => m.react('✖️'))}
 
