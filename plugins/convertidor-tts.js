@@ -24,7 +24,6 @@ const handler = async (m, {conn, args, usedPrefix, command}) => {
 };
 handler.help = ['tts <lang> <teks>'];
 handler.tags = ['transformador'];
-handler.group = true;
 handler.register = true
 handler.command = ['tts'];
 
