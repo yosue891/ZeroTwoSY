@@ -123,7 +123,7 @@ Utiliza *${usedPrefix}unreg* para romper el sello actual.`)
   }, { quoted: m })
 
   // ✧ Notificar al Reino Espiritual (grupo de notificaciones)
-  const reinoEspiritual = '120363372883715167@newsletter'
+  const reinoEspiritual = '120363417511396883@g.us'
   const mensajeNotificacion = `
 ╭─「 ❀ 𝑵𝒖𝒆𝒗𝒐 𝑨𝒔𝒊𝒔𝒕𝒆𝒏𝒕𝒆 ❀ 」─╮
 │ ୨୧ *Nombre:* ${name}
