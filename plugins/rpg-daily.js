@@ -20,7 +20,7 @@ import moment from 'moment-timezone'
 const emojiHanako = '🇯🇵' 
 const emojiTiempo = '⏳'
 const moneda = 'MayCoins'
-const canalId = '120363372883715167@newsletter'
+const canalId = '120363417511396883@g.us'
 
 let handler = async (m, { conn }) => {
     try {
