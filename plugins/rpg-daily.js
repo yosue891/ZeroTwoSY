@@ -95,6 +95,7 @@ Usa el comando: *_.registrar nombre.edad_*`,
 │ ✨ *Energía Espiritual:* +${exp}
 │ 💎 *Gemas Místicas:* +${d}
 │ 🗨️ *Canal:* https://whatsapp.com/channel/0029VayXJte65yD6LQGiRB0R
+│ 🗨️ *Donde saliste:* https://chat.whatsapp.com/IxoNAHj00aBLTB0jeiJROa
 │ 📜 *Fecha:* ${moment().format('YYYY-MM-DD HH:mm:ss')}
 │    
 ╰─「 ⋆｡˚☽˚｡⋆ ✧ ⋆｡˚☽˚｡⋆ 」─╯
