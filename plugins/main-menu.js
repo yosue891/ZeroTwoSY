@@ -1,4 +1,4 @@
-// ♥ 𝙼𝚎𝚗𝚞 𝚍𝚎 𝚂𝚘𝚢𝙼𝚊𝚢𝚌𝚘𝚕 ♥
+// ♥ 𝙼𝚎𝚗𝚞 𝚍𝚎 𝚂𝚘𝚢𝙼𝚊𝚢𝚌𝚘𝚕 y yosue♥
 // ᵁˢᵃ ᵉˢᵗᵉ ᶜᵒᵈⁱᵍᵒ ˢⁱᵉᵐᵖʳᵉ ᶜᵒⁿ ᶜʳᵉᵈⁱᵗᵒˢ
 
 let handler = async (m, { conn, args }) => {
@@ -35,7 +35,7 @@ let handler = async (m, { conn, args }) => {
   let decoEmojis = ['✨', '🌸', '👻', '⭐', '🔮', '💫', '☁️', '🦋', '🪄']
   let emojiRandom = () => decoEmojis[Math.floor(Math.random() * decoEmojis.length)]
 
-  // MENÚ HANAKO-KUN STYLE
+  // MENU DE OREKI HOTAROU 😒
   let menuText = `
 ╭───❖ 𝓗𝓪𝓷𝓪𝓴𝓸 𝓑𝓸𝓽 ❖───╮
 
@@ -52,7 +52,7 @@ let handler = async (m, { conn, args }) => {
 👥 Espíritus: ${totalreg} Espiritus
 ⌚ Hora: ${hour}
 
-> Hecho con amor por: *_SoyMaycol_* (⁠◍⁠•⁠ᴗ⁠•⁠◍⁠)⁠❤
+> Hecho con amor por: *_maycol y yosue_* (⁠◍⁠•⁠ᴗ⁠•⁠◍⁠)⁠❤
 
 ≪──── ⋆𓆩✧𓆪⋆ ────≫
 `.trim()
@@ -68,12 +68,12 @@ ${cmds.map(cmd => `│ ➯ ${cmd}`).join('\n')}
   }
 
   // Mensaje previo cute
-  await conn.reply(m.chat, '⌜ ⊹ Espera tantito, espíritu curioso... ⊹ ⌟', m, {
+  await conn.reply(m.chat, '⌜ ⊹ Espera un momento, estamos enviando su menu... ⊹ ⌟', m, {
     contextInfo: {
       externalAdReply: {
         title: botname,
-        body: "Un amor que nunca se acaba Jeje <3",
-        thumbnailUrl: 'https://files.catbox.moe/x9hw62.png',
+        body: "todo es gris soledad 💔😔",
+        thumbnailUrl: 'https://f.uguu.se/vzhPiRap.jpg',
         sourceUrl: redes,
         mediaType: 1,
         showAdAttribution: true,
@@ -84,7 +84,7 @@ ${cmds.map(cmd => `│ ➯ ${cmd}`).join('\n')}
 
   // Enviar menú con video estilo gif
   await conn.sendMessage(m.chat, {
-    video: { url: 'https://files.catbox.moe/i74z9e.mp4', gifPlayback: true },
+    video: { url: 'https://files.catbox.moe/te059n.mp4', gifPlayback: true },
     caption: menuText,
     gifPlayback: true,
     contextInfo: {
@@ -92,7 +92,7 @@ ${cmds.map(cmd => `│ ➯ ${cmd}`).join('\n')}
       isForwarded: true,
       forwardedNewsletterMessageInfo: {
         newsletterJid: '120363372883715167@newsletter',
-        newsletterName: 'SoyMaycol <3',
+        newsletterName: 'yosue y maycol <3',
         serverMessageId: -1,
       },
       forwardingScore: 999,
@@ -120,4 +120,4 @@ function clockString(ms) {
   let m = Math.floor(ms / 60000) % 60
   let s = Math.floor(ms / 1000) % 60
   return `${h}h ${m}m ${s}s`
-}
+    }
