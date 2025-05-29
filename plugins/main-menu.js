@@ -1,4 +1,4 @@
-// ♥ 𝙼𝚎𝚗𝚞 𝚍𝚎 𝚂𝚘𝚢𝙼𝚊𝚢𝚌𝚘𝚕 y yosue♥
+// ♥ 𝙼𝚎𝚗𝚞 𝚍𝚎 𝚂𝚘𝚢𝙼𝚊𝚢𝚌𝚘𝚕 y yosue wirk♥
 // ᵁˢᵃ ᵉˢᵗᵉ ᶜᵒᵈⁱᵍᵒ ˢⁱᵉᵐᵖʳᵉ ᶜᵒⁿ ᶜʳᵉᵈⁱᵗᵒˢ
 
 let handler = async (m, { conn, args }) => {
@@ -52,7 +52,7 @@ let handler = async (m, { conn, args }) => {
 👥 Usuarios: ${totalreg} usuarios 
 ⌚ Hora: ${hour}
 
-> Hecho con amor por: *_maycol y yosue_* (⁠◍⁠•⁠ᴗ⁠•⁠◍⁠)⁠❤
+> Hecho con amor por: *_maycol y yosue_ y wirk_* (⁠◍⁠•⁠ᴗ⁠•⁠◍⁠)⁠❤
 
 ≪──── ⋆𓆩✧𓆪⋆ ────≫
 `.trim()
@@ -98,7 +98,7 @@ ${cmds.map(cmd => `│ ➯ ${cmd}`).join('\n')}
       forwardingScore: 999,
       externalAdReply: {
         title: botname,
-        body: "Un amor que nunca se acaba Jeje <3",
+        body: "😓 </3",
         thumbnailUrl: banner,
         sourceUrl: redes,
         mediaType: 1,
