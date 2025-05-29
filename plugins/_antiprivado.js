@@ -11,7 +11,7 @@ export async function before(m, { conn, isAdmin, isBotAdmin, isOwner, isROwner})
 
   if (bot.antiPrivate &&!isOwner &&!isROwner) {
     // 📸 Ruta de la imagen que se enviará
-    const imageUrl = 'https://files.catbox.moe/mn8xr6.webp'; // Reemplázala con la imagen que quieras usar
+    const imageUrl = 'https://files.catbox.moe/21xbdw.jpg'; // Reemplázala con la imagen que quieras usar
 
     // 🔗 Mensaje de alerta con el enlace del grupo
     const messageText = `😔 *Hola* @${m.sender.split`@`[0]},\n\n🚫 *Mi creador ha desactivado los comandos en chats privados, por lo que serás bloqueado.*\n\n🔗 *Si quieres usar los comandos, únete al grupo principal del bot:* https://chat.whatsapp.com/KqkJwla1aq1LgaPiuFFtEY`;
@@ -26,4 +26,4 @@ export async function before(m, { conn, isAdmin, isBotAdmin, isOwner, isROwner})
 }
 
   return!1;
-}
+  }
