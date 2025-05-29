@@ -47,9 +47,9 @@ let handler = async (m, { conn, args }) => {
 ✦ 𝙸𝙽𝙵𝙾 𝙳𝙴 𝚂𝚄𝙼𝙾𝙽 ✦
 
 💻 Sistema: Multi-Device
-👤 Espíritu: @${userId.split('@')[0]}
+👤 Usado por: @${userId.split('@')[0]}
 ⏰ Tiempo activo: ${uptime}
-👥 Espíritus: ${totalreg} Espiritus
+👥 Usuarios: ${totalreg} usuarios 
 ⌚ Hora: ${hour}
 
 > Hecho con amor por: *_maycol y yosue_* (⁠◍⁠•⁠ᴗ⁠•⁠◍⁠)⁠❤
@@ -68,12 +68,12 @@ ${cmds.map(cmd => `│ ➯ ${cmd}`).join('\n')}
   }
 
   // Mensaje previo cute
-  await conn.reply(m.chat, '⌜ ⊹ Espera un momento, estamos enviando su menu... ⊹ ⌟', m, {
+  await conn.reply(m.chat, '⌜ ⊹ Espera un momento, estamos enviando su menu... 😔 ⊹ ⌟', m, {
     contextInfo: {
       externalAdReply: {
         title: botname,
         body: "todo es gris soledad 💔😔",
-        thumbnailUrl: 'https://f.uguu.se/vzhPiRap.jpg',
+        thumbnailUrl: 'https://files.catbox.moe/hha29x.jpg',
         sourceUrl: redes,
         mediaType: 1,
         showAdAttribution: true,
