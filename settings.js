@@ -17,7 +17,7 @@ global.botNumber = '' //Ejemplo: 51921826291
 
 global.owner = [
   ['584242773183', '🜲 Propietario 🜲', true],
-  ['5492916450307'],
+  ['50493732693'],
   ['18098664948']
 ];
 
@@ -32,25 +32,25 @@ global.prems = []
 global.libreria = 'Baileys'
 global.baileys = 'V 6.7.16' 
 global.vs = '2.2.0'
-global.nameqr = 'SoyMaycol'
-global.namebot = '𝐌𝐚𝐲𝐜𝐨𝐥𝐀𝐈𝐔𝐥𝐭𝐫𝐚-𝐌𝐃'
+global.nameqr = 'hyouka'
+global.namebot = 'houtarou oreki'
 global.sessions = 'Sessions'
 global.jadi = 'JadiBots' 
 global.yukiJadibts = true
 
 //*─ׄ─ׅ─ׄ─⭒─ׄ─ׅ─ׄ─⭒─ׄ─ׅ─ׄ─⭒─ׄ─ׅ─ׄ─⭒─ׄ─ׅ─ׄ─⭒─ׄ─ׅ─ׄ─*
 
-global.packname = '𝕄𝕒𝕪𝕔𝕠𝕝𝔸𝕀𝕌𝕝𝕥𝕣𝕒-𝕄𝔻'
-global.botname = '𝐌𝐚𝐲𝐜𝐨𝐥𝐀𝐈𝐔𝐥𝐭𝐫𝐚-𝐌𝐃'
-global.wm = '𝙼𝚊𝚢𝚌𝚘𝚕𝙰𝙸𝚄𝚕𝚝𝚛𝚊-𝙼𝙳'
-global.author = '𝙃𝙚𝙘𝙝𝙤 𝙥𝙤𝙧 𝙎𝙤𝙮𝙈𝙖𝙮𝙘𝙤𝙡 <3'
-global.dev = '𝙃𝙚𝙘𝙝𝙤 𝙥𝙤𝙧 𝙎𝙤𝙮𝙈𝙖𝙮𝙘𝙤𝙡 <3'
-global.textbot = '𝐌𝐚𝐲𝐜𝐨𝐥𝐀𝐈𝐔𝐥𝐭𝐫𝐚-𝐌𝐃 • 𝙃𝙚𝙘𝙝𝙤 𝙥𝙤𝙧 𝙎𝙤𝙮𝙈𝙖𝙮𝙘𝙤𝙡 <3'
-global.etiqueta = '𝙼𝚊𝚢𝚌𝚘𝚕𝙰𝙸'
+global.packname = 'houtarou oreki'
+global.botname = 'houtarou oreki'
+global.wm = 'houtarou oreki'
+global.author = '𝙃𝙚𝙘𝙝𝙤 𝙥𝙤𝙧 𝙈𝙖𝙮𝙘𝙤𝙡 yosue y wirk<3'
+global.dev = '𝙃𝙚𝙘𝙝𝙤 𝙥𝙤𝙧 𝙈𝙖𝙮𝙘𝙤𝙡 yosue y wirk <3'
+global.textbot = 'houtarou oreki • 𝙃𝙚𝙘𝙝𝙤 𝙥𝙤𝙧 𝙈𝙖𝙮𝙘𝙤𝙡 yosue y wirk <3'
+global.etiqueta = 'hyouka'
 
 //*─ׄ─ׅ─ׄ─⭒─ׄ─ׅ─ׄ─⭒─ׄ─ׅ─ׄ─⭒─ׄ─ׅ─ׄ─⭒─ׄ─ׅ─ׄ─⭒─ׄ─ׅ─ׄ─*
 
-global.moneda = 'MayCoins'
+global.moneda = 'houtarouCoins'
 global.welcom1 = '❍ Edita Con El Comando setwelcome'
 global.welcom2 = '❍ Edita Con El Comando setbye'
 global.banner = 'https://qu.ax/pNYoY.jpg'
