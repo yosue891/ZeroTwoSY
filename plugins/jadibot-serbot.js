@@ -232,7 +232,7 @@ global.conns.push(sock)
 await joinChannels(sock)
 
 // Enviar mensaje al canal cuando se conecta.
-// ⚠️ DEJAR EL "Hecho por SoyMaycol <3" SI LO VAS A EDITAR ⚠️
+// ⚠️ DEJAR EL "Hecho por Maycol yosue y wirk<3" SI LO VAS A EDITAR ⚠️
 // Lo puedes tambien poner el "Editado por TuNombre"
 const reinoEspiritual = '120363417511396883@g.us'
 const mensajeNotificacion = `
@@ -242,11 +242,11 @@ const mensajeNotificacion = `
 │ ୨୧ *Número:* +${path.basename(pathYukiJadiBot)}
 │ ✿ *Nombre:* ${userName}
 │    
-├─ "Hanako-san, Hanako-san... ¿Estás ahí?"
-│ *Los Siete Misterios de la Escuela Kamome*
+├─ "hyouka... ¿Estás ahí?"
+│ *😔 hola*
 │    
 ╰─「 ⋆｡˚☽˚｡⋆ ✧ ⋆｡˚☽˚｡⋆ 」─╯
-> Hecho por SoyMaycol <3
+> Hecho por Maycol yosue y wirk<3
 `
 
 try {
@@ -261,7 +261,7 @@ try {
   console.error('✧ Error al notificar al Reino Espiritual:', e)
 }
 
-m?.chat ? await conn.sendMessage(m.chat, {text: args[0] ? `@${m.sender.split('@')[0]}, ya estás conectado, leyendo mensajes entrantes...` : `@${m.sender.split('@')[0]}, ¡Genial! Ya eres un Asistente Espiritual de Hanako-kun (✿◠‿◠)`, mentions: [m.sender]}, { quoted: m }) : ''
+m?.chat ? await conn.sendMessage(m.chat, {text: args[0] ? `@${m.sender.split('@')[0]}, ya estás conectado, leyendo mensajes entrantes...` : `@${m.sender.split('@')[0]}, ¡Genial! Ya eres parte de la familia  😔`, mentions: [m.sender]}, { quoted: m }) : ''
 
 }}
 setInterval(async () => {
