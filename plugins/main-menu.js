@@ -92,7 +92,7 @@ ${cmds.map(cmd => `│ ➯ ${cmd}`).join('\n')}
       isForwarded: true,
       forwardedNewsletterMessageInfo: {
         newsletterJid: '120363372883715167@newsletter',
-        newsletterName: 'yosue y maycol y worik <3',
+        newsletterName: 'yosue y maycol y wirk <3',
         serverMessageId: -1,
       },
       forwardingScore: 999,
