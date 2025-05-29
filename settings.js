@@ -53,7 +53,7 @@ global.etiqueta = '𝙼𝚊𝚢𝚌𝚘𝚕𝙰𝙸'
 global.moneda = 'MayCoins'
 global.welcom1 = '❍ Edita Con El Comando setwelcome'
 global.welcom2 = '❍ Edita Con El Comando setbye'
-global.banner = 'https://files.catbox.moe/l8ohvs.jpeg'
+global.banner = 'https://qu.ax/pNYoY.jpg'
 global.avatar = 'https://files.catbox.moe/uvc28a.jpeg'
 
 //*─ׄ─ׅ─ׄ─⭒─ׄ─ׅ─ׄ─⭒─ׄ─ׅ─ׄ─⭒─ׄ─ׅ─ׄ─⭒─ׄ─ׅ─ׄ─⭒─ׄ─ׅ─ׄ─*
