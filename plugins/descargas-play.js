@@ -1,103 +1,73 @@
-import fetch from "node-fetch"
-import yts from 'yt-search'
-import axios from "axios"
+import fetch from 'node-fetch';
 
-const handler = async (m, { conn, text, usedPrefix, command }) => {
+let handler = async (m, { conn, usedPrefix, command, text }) => {
+  if (!text) return m.reply(`😔 Ingresa un nombre para buscar en YouTube.\n\n💔 *Ejemplo:* ${usedPrefix + command} toxic`);
+
   try {
-    if (!text.trim()) {
-      return conn.reply(m.chat, `❀ Por favor, ingresa el nombre de la música a descargar.`, m)
+    const searchApi = `https://delirius-apiofc.vercel.app/search/ytsearch?q=${text}`;
+    const searchResponse = await fetch(searchApi);
+    const searchData = await searchResponse.json();
+
+    if (!searchData?.data || searchData.data.length === 0) {
+      return m.reply(`⚠️ No encontré resultados para *"${text}"*...`);
     }
 
-    const search = await yts(text)
-    if (!search.all || search.all.length === 0) {
-      return m.reply('✧ No se encontraron resultados para tu búsqueda.')
-    }
+    const video = searchData.data[0];
 
-    const videoInfo = search.all[0]
-    if (!videoInfo) {
-      return m.reply('✧ No se pudo obtener información del video.')
-    }
+    const waitMessage = `☁️ *︙${video.title}*\n\n` +
+      `🎧 *Artista:* ${video.author.name}\n` +
+      `⏳ *Duración:* ${video.duration}\n` +
+      `👀 *Vistas:* ${video.views}\n` +
+      `➺ 𝑬𝒔𝒑𝒆𝒓𝒂 𝒖𝒏 𝒑𝒐𝒒𝒖𝒊𝒕𝒐, 𝒆𝒔𝒕𝒂𝒎𝒐𝒔 𝒃𝒂𝒋𝒂𝒏𝒅𝒐 𝒕𝒖 𝒄𝒂𝒏𝒄𝒊ó𝒏... 𝙉𝙤𝙩𝙖 𝙮 𝙧𝙚𝙘𝙪𝙚𝙧𝙙𝙖 𝙦𝙪𝙚 𝙥𝙪𝙚𝙙𝙚𝙨 𝙪𝙨𝙖𝙧 𝙥𝙡𝙖𝙮𝙖𝙪𝙙𝙞𝙤 𝙥𝙖𝙧𝙖 𝙢𝙚𝙟𝙤𝙧 𝙘𝙖𝙡𝙞𝙙𝙖𝙙 😔`;
 
-    const { title, thumbnail, timestamp, views, ago, url, author } = videoInfo
-
-    if (!title || !thumbnail || !timestamp || !views || !ago || !url || !author) {
-      return m.reply('✧ Información incompleta del video.')
-    }
-
-    const vistas = formatViews(views)
-    const canal = author.name ? author.name : 'Desconocido'
-    const infoMessage = `「✦」Descargando *<${title || 'Desconocido'}>*\n\n> ✦ Canal » *${canal}*\n> ✰ Vistas » *${vistas || 'Desconocido'}*\n> ⴵ Duración » *${timestamp || 'Desconocido'}*\n> ✐ Publicación » *${ago || 'Desconocido'}*\n> 🜸 Link » ${url}`
-
-    const thumb = (await conn.getFile(thumbnail))?.data
-
-    const JT = {
+    await conn.sendMessage(m.chat, {
+      image: { url: video.image },
+      caption: waitMessage.trim(),
       contextInfo: {
+        forwardingScore: 999,
+        isForwarded: true
+      }
+    }, { quoted: m });
+
+    const downloadApi = `https://api.vreden.my.id/api/ytmp3?url=${video.url}`;
+    const downloadResponse = await fetch(downloadApi);
+    const downloadData = await downloadResponse.json();
+
+    if (!downloadData?.result?.download?.url) {
+      return m.reply("❌ No se pudo obtener el audio del video.");
+    }
+
+    const audioUrl = downloadData.result.download.url;
+
+    await conn.sendMessage(m.chat, {
+      audio: { url: audioUrl },
+      mimetype: 'audio/mpeg',
+      ptt: false,
+      fileName: `🎵 ${video.title}.mp3`,
+      contextInfo: {
+        forwardingScore: 999,
+        isForwarded: true,
         externalAdReply: {
-          title: botname,
-          body: dev,
-          mediaType: 1,
-          previewType: 0,
-          mediaUrl: url,
-          sourceUrl: url,
-          thumbnail: thumb,
-          renderLargerThumbnail: true,
-        },
-      },
-    }
-
-    await conn.reply(m.chat, infoMessage, m, JT)
-
-    if (command === 'play' || command === 'yta' || command === 'ytmp3') {
-      try {
-        const api = await (await fetch(`https://api.vreden.my.id/api/ytmp3?url=${url}`)).json()
-        const resulta = api.result
-        const result = resulta.download.url
-
-        if (!result) throw new Error('⚠ El enlace de audio no se generó correctamente.')
-
-        await conn.sendMessage(m.chat, { audio: { url: result }, fileName: `${api.result.title}.mp3`, mimetype: 'audio/mpeg' }, { quoted: m })
-      } catch (e) {
-        return conn.reply(m.chat, '⚠︎ No se pudo enviar el audio. Esto puede deberse a que el archivo es demasiado pesado o a un error en la generación de la URL. Por favor, intenta nuevamente más tarde.', m)
+          title: "ツ 𝙝𝙮𝙤𝙪𝙠𝙖 𝙗𝙤𝙩",
+          body: "©𝙋𝙤𝙬𝙚𝙧𝙚𝙙 𝙗𝙮 𝙎𝙔𝘼 𝙩𝙚𝙖𝙢",
+          thumbnailUrl: video.image,
+          mediaUrl: "https://chat.whatsapp.com/KqkJwla1aq1LgaPiuFFtEY",
+          mediaType: 2,
+          showAdAttribution: true,
+          renderLargerThumbnail: true
+        }
       }
-    } else if (command === 'play2' || command === 'ytv' || command === 'ytmp4') {
-      try {
-        const response = await fetch(`https://api.vreden.my.id/api/ytmp4?url=${url}`)
-        const json = await response.json()
-        const resultad = json.result
-        const resultado = resultad.download.url
+    }, { quoted: m });
 
-        if (!resultad || !resultado) throw new Error('⚠ El enlace de video no se generó correctamente.')
-
-        await conn.sendMessage(m.chat, { video: { url: resultado }, fileName: resultad.title, mimetype: 'video/mp4', caption: title }, { quoted: m })
-      } catch (e) {
-        return conn.reply(m.chat, '⚠︎ No se pudo enviar el video. Esto puede deberse a que el archivo es demasiado pesado o a un error en la generación de la URL. Por favor, intenta nuevamente más tarde.', m)
-      }
-    } else {
-      return conn.reply(m.chat, '✧︎ Comando no reconocido.', m)
-    }
-
+    await m.react("▶️");
   } catch (error) {
-    return m.reply(`⚠︎ Ocurrió un error: ${error}`)
+    console.error(error);
+    m.reply(`❌ Ocurrió un error:\n${error.message}`);
   }
-}
+};
 
-handler.command = handler.help = ['play', 'yta', 'ytmp3', 'play2', 'ytv', 'ytmp4']
-handler.tags = ['descargas']
-handler.group = true
+handler.command = ['play', 'play'];
+handler.help = ['play <texto>', 'playaudio <texto>'];
+handler.tags = ['media'];
 
-export default handler
-
-function formatViews(views) {
-  if (views === undefined) {
-    return "No disponible"
-  }
-
-  if (views >= 1_000_000_000) {
-    return `${(views / 1_000_000_000).toFixed(1)}B (${views.toLocaleString()})`
-  } else if (views >= 1_000_000) {
-    return `${(views / 1_000_000).toFixed(1)}M (${views.toLocaleString()})`
-  } else if (views >= 1_000) {
-    return `${(views / 1_000).toFixed(1)}k (${views.toLocaleString()})`
-  }
-  return views.toString()
-}
+export default handler;
