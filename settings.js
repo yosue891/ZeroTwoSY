@@ -54,17 +54,17 @@ global.moneda = 'houtarouCoins'
 global.welcom1 = '❍ Edita Con El Comando setwelcome'
 global.welcom2 = '❍ Edita Con El Comando setbye'
 global.banner = 'https://qu.ax/pNYoY.jpg'
-global.avatar = 'https://files.catbox.moe/uvc28a.jpeg'
+global.avatar = 'https://files.catbox.moe/73jhb8.jpg'
 
 //*─ׄ─ׅ─ׄ─⭒─ׄ─ׅ─ׄ─⭒─ׄ─ׅ─ׄ─⭒─ׄ─ׅ─ׄ─⭒─ׄ─ׅ─ׄ─⭒─ׄ─ׅ─ׄ─*
 
-global.gp1 = 'https://chat.whatsapp.com/EprzCjr7XFyAIFr9OfBh2o'
+global.gp1 = 'https://chat.whatsapp.com/KqkJwla1aq1LgaPiuFFtEY'
 global.comunidad1 = 'https://whatsapp.com/channel/0029VayXJte65yD6LQGiRB0R'
 global.channel = 'https://whatsapp.com/channel/0029VayXJte65yD6LQGiRB0R'
 global.channel2 = 'https://whatsapp.com/channel/0029VayXJte65yD6LQGiRB0R'
-global.md = 'https://github.com/SoySapo6/MaycolAI'
-global.correo = 'karatekidamericatv@gmail.com'
-global.cn ='https://whatsapp.com/channel/0029VayXJte65yD6LQGiRB0R';
+global.md = 'https://github.com/yosue891/ZeroTwoSY.git'
+global.correo = 'yosueortega30@gmail.com'
+global.cn ='https://whatsapp.com/channel/0029Vb5UfTC4CrfeKSamhp1f';
 
 //*─ׄ─ׅ─ׄ─⭒─ׄ─ׅ─ׄ─⭒─ׄ─ׅ─ׄ─⭒─ׄ─ׅ─ׄ─⭒─ׄ─ׅ─ׄ─⭒─ׄ─ׅ─ׄ─*
 
