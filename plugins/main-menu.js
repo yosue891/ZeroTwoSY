@@ -72,7 +72,7 @@ ${cmds.map(cmd => `│ ➯ ${cmd}`).join('\n')}
     contextInfo: {
       externalAdReply: {
         title: botname,
-        body: "todo es gris soledad 💔😔",
+        body: "mientras otros fingen depresión nosotros fingimos ser felices 😔💔",
         thumbnailUrl: 'https://files.catbox.moe/hha29x.jpg',
         sourceUrl: redes,
         mediaType: 1,
