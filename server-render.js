@@ -37,7 +37,7 @@ const server = app.listen(PORT, () => {
 
 // Función para iniciar el bot
 function startBot() {
-  console.log('Iniciando YukiBot-MD con --max-old-space-size=146...');
+  console.log('Iniciando hyouka con --max-old-space-size=146...');
 
   if (globalBot) {
     globalBot.kill();
