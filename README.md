@@ -1,6 +1,31 @@
-<h1 align="center">⊹˚₊ MaycolAIUltraMD ₊˚⊹</h1>
+<h1 align="center">⊹˚₊ hyouka ₊˚⊹</h1>
 
- <img src= "https://files.catbox.moe/8iqvp8.gif">
+ <img src= "https://raw.githubusercontent.com/Ado926/WirksiBoxFiles/main/1749150921361-omyeye-VID-20250605-WA0058.mp4">
+    </p>
+
+### **`⚡ Información importante`**
+
+<details>
+ <summary><b>📱 Acerca del Bot</b></summary>
+
+* Este proyecto **no está afiliado de ninguna manera** con `WhatsApp`, `Inc. WhatsApp` es una marca registrada de `WhatsApp LLC`.
+* Hyouka es un **desarrollo independiente** creado con pasión y dedicación que **no tiene ninguna relación oficial con la compañía**.
+* Este bot fue creado y desarrollado por Maycol yosue y wirk
+</details>
+
+<details>
+ <summary><b>✨ Características</b></summary>
+
+> Hyouka está en constante evolución. Si encuentras algún error, por favor reportalo para brindarte una solución rápida.
+
+- [x] Interacción con voz y texto al estilo anime
+- [x] Configuración personalizada para grupos
+- [x] Protección avanzada: antidelete, antilink, antispam, etc
+- [x] Mensajes de bienvenida con temática anime
+- [x] Mini-juegos interactivos: tictactoe, matemáticas, trivia anime
+- [x] Chatbot con personalidad (simsh1 align="center">⊹˚₊ hyouka ₊˚⊹</h1>
+
+ <img src= "https://raw.githubusercontent.com/Ado926/WirksiBoxFiles/main/1749150921361-omyeye-VID-20250605-WA0058.mp4">
     </p>
 
 ### **`⚡ Información importante`**
@@ -16,7 +41,7 @@
 <details>
  <summary><b>✨ Características</b></summary>
 
-> MaycolAIUltraMD está en constante evolución. Si encuentras algún error, por favor reportalo para brindarte una solución rápida.
+> Hyouka está en constante evolución. Si encuentras algún error, por favor reportalo para brindarte una solución rápida.
 
 - [x] Interacción con voz y texto al estilo anime
 - [x] Configuración personalizada para grupos
@@ -24,6 +49,14 @@
 - [x] Mensajes de bienvenida con temática anime
 - [x] Mini-juegos interactivos: tictactoe, matemáticas, trivia anime
 - [x] Chatbot con personalidad (simsimi)
+- [x] Respuestas automáticas personalizables
+- [x] Creación de stickers de image/video/gif/url
+- [x] SubBot (Jadibot) multidispositivo
+- [x] Buscador Google optimizado
+- [x] Sistema RPG con temática anime
+- [x] Personalización completa de menús e interfaces
+- [x] Descarga de música y video de múltiples plataformas
+imi)
 - [x] Respuestas automáticas personalizables
 - [x] Creación de stickers de image/video/gif/url
 - [x] SubBot (Jadibot) multidispositivo
@@ -39,10 +72,10 @@
 
 # Instalacion por Render ₊˚⊹
 > Repositorio que debes poner:
-https://github.com/SoySapo6/MaycolAIUltraMD.git
+https://github.com/yosue891/ZeroTwoSY.git
 
 <p align="center">
-  <img src="https://files.catbox.moe/xnojvs.png" width="500">
+  <img src="https://raw.githubusercontent.com/Ado926/WirksiBoxFiles/main/1749151559663-r7ypbr-6239fbc27eda2302834e715e39416167.jpg" width="500">
 </p>
 
 <details>
@@ -146,7 +179,7 @@ mkdir temp && npm start
 > Si deseas agregar tu número como owner del bot:
 
    ```bash
-    cd MaycolAIUltraMD && nano settings.js
+    cd ZeroTwoSY && nano settings.js
    ```
 
 </details>
@@ -209,5 +242,5 @@ href="https://github.com/SoySapo6"><img src="https://github.com/SoySapo6.png" wi
 <p align="center">
   <img src="[https://files.catbox.moe/csibjp.gif](https://files.catbox.moe/csibjp.gif)" width="500">
   <br>
-  <i>Proyecto desarrollado individualmente con ❤️</i>
+  <i>Proyecto desarrollado con amor  por Maycol wirk y yosue</i>
 </p>
