@@ -1,7 +1,7 @@
 /**
  * ⋆｡˚ ☁︎｡⋆｡ ˚☽˚｡⋆ ✦ ⋆｡˚☁︎｡⋆｡ ˚☽˚｡⋆ ✦
  * 
- * 𝐓𝐨𝐢𝐥𝐞𝐭-𝐁𝐨𝐮𝐧𝐝 𝐇𝐚𝐧𝐚𝐤𝐨-𝐤𝐮𝐧 𝐑𝐞𝐠𝐢𝐬𝐭𝐫𝐨 𝐝𝐞 𝐒𝐞𝐫𝐞𝐬 𝐄𝐬𝐩𝐢𝐫𝐢𝐭𝐮𝐚𝐥𝐞𝐬
+ * 𝐓𝐨𝐢𝐥𝐞𝐭-𝐁𝐨𝐮𝐧𝐝 hyouka  𝐑𝐞𝐠𝐢𝐬𝐭𝐫𝐨 
  * 
  * "Los rumores dicen que si escribes tu nombre en el Libro de los Siete Misterios,
  * Hanako-kun te concederá un deseo a cambio de convertirte en su asistente..."
@@ -21,12 +21,12 @@ import { createHash } from 'crypto'
 import fetch from 'node-fetch'
 import moment from 'moment-timezone'
 
-// ✿ Sello mágico para validar el pacto con Hanako-kun ✿
+// ✿ Sello mágico para validar el pacto con hyouka ✿
 const SelloMistico = /\|?(.*)([.|] *?)([0-9]*)$/i
 
 /**
  * ⋆｡°✩ Ritual de Invocación ✩°｡⋆
- * Hanako-san, Hanako-san... ¿Estás ahí?
+ * Hyouka,... ¿Estás ahí?
  */
 let handler = async function (m, { conn, text, usedPrefix, command }) {
   // ✧ Identificar al invocador espiritual
@@ -38,36 +38,36 @@ let handler = async function (m, { conn, text, usedPrefix, command }) {
   const user = global.db.data.users[m.sender]
   const name2 = conn.getName(m.sender)
 
-  // ✧ Verificar si ya existe un pacto con Hanako-kun
+  // ✧ Verificar si ya existe un pacto con hyouka 
   if (user.registered) {
-    return m.reply(`『✦』 ¡Ya existe un pacto entre nosotros, ${name2}-kun! (◕ᴗ◕✿)
+    return m.reply(`『✦』 ¡Ya existe un pacto entre nosotros, ${name2}-hyou! 
 
-¿Deseas crear un nuevo pacto?
+¿Deseas registrarte de nuevo?
 Utiliza *${usedPrefix}unreg* para romper el sello actual.`)
   }
 
   // ✧ Verificar el formato del ritual
   if (!SelloMistico.test(text)) {
-    return m.reply(`『❀』 ¡El ritual no es correcto! (っ °Д °;)っ
+    return m.reply(`『❀』 ¡El registro no es correcto! (っ °Д °;)っ
 
 ✧ Formato correcto: *${usedPrefix + command} nombre.edad*
 ✧ Ejemplo: *${usedPrefix + command} ${name2}.18*
 
-"Para invocar a Hanako-kun, debes escribir tu nombre y edad correctamente..."`)
+"Para usar todos los comandos de hyouka, debes escribir tu nombre y edad correctamente..."`)
   }
 
   // ✧ Extraer la información del ritual
   let [_, name, __, age] = text.match(SelloMistico)
   
   // ✧ Validar el nombre del invocador
-  if (!name) return m.reply('『❀』 ¡Tu nombre no puede quedar en blanco! Hanako-kun necesita conocerte (⁠>⁠﹏⁠<⁠)')
-  if (!age) return m.reply('『❀』 ¡Tu edad es importante para el pacto! (╯°□°）╯︵ ┻━┻')
-  if (name.length >= 100) return m.reply('『❀』 ¡Ese nombre es demasiado largo! ¿Eres un yokai antiguo? (⊙_⊙)')
+  if (!name) return m.reply('『❀』 ¡Tu nombre no puede quedar en blanco! Hyouka necesita conocerte')
+  if (!age) return m.reply('『❀』 ¡Tu edad es importante para el registro')
+  if (name.length >= 100) return m.reply('『❀』 ¡Ese nombre es demasiado largo! ¿Eres un yokai antiguo? ')
 
-  // ✧ Validar la edad del invocador
+  // ✧ Validar la edad del registro 
   age = parseInt(age)
-  if (age > 1000) return m.reply('『❀』 ¡Oh! ¿Eres un espíritu ancestral como yo? (◐.̃◐)')
-  if (age < 5) return m.reply('『❀』 Los niños pequeños no deberían jugar con yokais... ¡Es peligroso! (；⌣̀_⌣́)')
+  if (age > 1000) return m.reply('『❀』 ¡Oh! ¿Eres un viejo? ')
+  if (age < 5) return m.reply('『⚠️』 Los niños pequeños no deberían jugar con yokais... ¡Es peligroso! 😂')
 
   // ✧ Registrar al nuevo asistente de Hanako-kun
   user.name = `${name}⋆˙⟡♱⟡˙⋆`.trim()
@@ -83,31 +83,31 @@ Utiliza *${usedPrefix}unreg* para romper el sello actual.`)
   // ✧ Crear el sello único del pacto
   const sn = createHash('md5').update(m.sender).digest('hex').slice(0, 20)
 
-  // ✧ Certificado del pacto con Hanako-kun
+  // ✧ Certificado del pacto con hyouka 
   const certificadoPacto = `
 ╭─「 ⋆｡˚☽˚｡⋆ 七不思議 ⋆｡˚☽˚｡⋆ 」─╮
-│    ✧ 𝑷𝒂𝒄𝒕𝒐 𝑪𝒐𝒏 𝑯𝒂𝒏𝒂𝒌𝒐-𝒌𝒖𝒏 ✧    
+│    ✧ 𝑷𝒂𝒄𝒕𝒐 𝑪𝒐𝒏 hyouka ✧    
 │    
 │ ୨୧ *Nombre:* ${name}
 │ ✿ *Edad:* ${age} años
 │ ♱ *Sello Único:* ${sn}
 │    
 ├─ ✧ 𝑩𝒆𝒏𝒅𝒊𝒄𝒊𝒐𝒏𝒆𝒔 𝑶𝒕𝒐𝒓𝒈𝒂𝒅𝒂𝒔:
-│ ✦ *MayCoins:* +46
-│ ☽ *Energía Espiritual:* +310
-│ ❀ *Sellos de Invocación:* +25
+│ ✦ *hyoukaCoins:* +46
+│ ☽ *Energía :* +310
+│ ❀ *Sellos :* +25
 │    
-├─ "Recuerda visitar el baño del 3er piso..."
-│ https://whatsapp.com/channel/0029VayXJte65yD6LQGiRB0R
-> Ve tu registro aca... *_https://chat.whatsapp.com/IxoNAHj00aBLTB0jeiJROa_*
+├─ "Recuerda visitar el canal de SYA team ..."
+│ https://whatsapp.com/channel/0029Vb5UfTC4CrfeKSamhp1f
+> Ve tu registro aca... *_https://chat.whatsapp.com/KqkJwla1aq1LgaPiuFFtEY_*
 │    
 ╰─「 ⋆｡˚☽˚｡⋆ ✧ ⋆｡˚☽˚｡⋆ 」─╯
 `.trim()
 
   // ✧ Reacción mística
-  await m.react('👻')
+  await m.react('💔')
 
-  // ✧ Enviar el certificado del pacto
+  // ✧ Enviar el certificado del registro 
   await conn.sendMessage(m.chat, {
     text: certificadoPacto,
     contextInfo: {
@@ -123,8 +123,8 @@ Utiliza *${usedPrefix}unreg* para romper el sello actual.`)
     }
   }, { quoted: m })
 
-  // ✧ Notificar al Reino Espiritual (grupo de notificaciones)
-  const reinoEspiritual = '120363417511396883@g.us'
+  // ✧ Notificar al  (grupo de notificaciones)
+  const reinoEspiritual = '120363416154617672@g.us'
   const mensajeNotificacion = `
 ╭─「 ❀ 𝑵𝒖𝒆𝒗𝒐 𝑨𝒔𝒊𝒔𝒕𝒆𝒏𝒕𝒆 ❀ 」─╮
 │ ୨୧ *Nombre:* ${name}
@@ -132,13 +132,13 @@ Utiliza *${usedPrefix}unreg* para romper el sello actual.`)
 │ ♱ *Sello:* ${sn}
 │
 ├─ ✧ 𝑩𝒆𝒏𝒅𝒊𝒄𝒊𝒐𝒏𝒆𝒔:
-│ ✦ MayCoins: +46
-│ ☽ Energía Espiritual: +310
-│ ❀ Sellos de Invocación: +25
+│ ✦ hyoukaCoins: +46
+│ ☽ Energía : +310
+│ ❀ Sellos : +25
 │
-│ 📜 *Fecha del Pacto:* ${moment().format('YYYY-MM-DD HH:mm:ss')}
-╰─「 𝑷𝒐𝒓 𝒍𝒐𝒔 𝑺𝒊𝒆𝒕𝒆 𝑴𝒊𝒔𝒕𝒆𝒓𝒊𝒐𝒔 」─╯
-> Hanako-kun & MaycolAIUltraMD`
+│ 📜 *Fecha del registro:* ${moment().format('YYYY-MM-DD HH:mm:ss')}
+╰─「 registro 」─╯
+> Maycol wirk y yosue & hyouka`
 
   // ✧ Intento de comunicación con el Reino Espiritual
   try {
@@ -150,7 +150,7 @@ Utiliza *${usedPrefix}unreg* para romper el sello actual.`)
       })
     }
   } catch (e) {
-    console.error('✧ Error al notificar al Reino Espiritual:', e)
+    console.error('✧ Error al verificar lo siento 😓💔:', e)
   }
 }
 
@@ -163,10 +163,10 @@ export default handler
 
 /**
  * ─────────────────────────────────
- *      ╭──❁ Hanako-kun ❁──╮
+ *      ╭──❁ hyouka ❁──╮
  *      │ "¿Necesitas ayuda? │
- *      │  Yo puedo cumplir  │
- *      │    tu deseo..."    │
+ *      │  si deseas te puedo  │
+ *      │    te puedo ayudar..."    │
  *      ╰──────✦❘✦──────╯
  * ─────────────────────────────────
  */
