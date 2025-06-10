@@ -1,6 +1,3 @@
-// ♥ 𝙼𝚎𝚗𝚞 𝚍𝚎 𝚂𝚘𝚢𝙼𝚊𝚢𝚌𝚘𝚕 y yosue wirk ♥
-// ᵁˢᵃ ᵉˢᵗᵉ ᶜᵒᵈⁱᵍᵒ ˢⁱᵉᵐᵖʳᵉ ᶜᵒⁿ ᶜʳᵉᵈⁱᵗᵒˢ
-
 let handler = async (m, { conn, args }) => {
   let userId = m.mentionedJid?.[0] || m.sender
   let user = global.db.data.users[userId]
@@ -35,7 +32,7 @@ let handler = async (m, { conn, args }) => {
   let decoEmojis = ['✨', '🌸', '👻', '⭐', '🔮', '💫', '☁️', '🦋', '🪄']
   let emojiRandom = () => decoEmojis[Math.floor(Math.random() * decoEmojis.length)]
 
-  // MENU DE OREKI HOTAROU 😒
+  //🌌 MENU DE KURIMI 🌌
   let menuText = `
 ╭───❖ 𝓗𝓪𝓷𝓪𝓴𝓸 𝓑𝓸𝓽 ❖───╮
 
@@ -44,7 +41,7 @@ let handler = async (m, { conn, args }) => {
 
 ╰─────❖ 𝓜𝓮𝓷𝓾 ❖─────╯
 
-✦ 𝙸𝙽𝙵𝙾 𝙳𝙴 𝚂𝚄𝙼𝙾𝙽 ✦
+✦ 𝙸𝙽𝙵𝙾 𝙳𝙴 kurumi✦
 
 💻 Sistema: Multi-Device
 👤 Usado por: @${userId.split('@')[0]}
@@ -52,7 +49,7 @@ let handler = async (m, { conn, args }) => {
 👥 Usuarios: ${totalreg} usuarios 
 ⌚ Hora: ${hour}
 
-> Hecho con amor por: *_maycol y yosue_ y wirk_* (⁠◍⁠•⁠ᴗ⁠•⁠◍⁠)⁠❤
+> *_esta bot está en pleno desarrollo pronto tendrá más cositas_*
 
 ≪──── ⋆𓆩✧𓆪⋆ ────≫
 `.trim()
@@ -68,11 +65,11 @@ ${cmds.map(cmd => `│ ➯ ${cmd}`).join('\n')}
   }
 
   // Mensaje previo cute
-  await conn.reply(m.chat, '⌜ ⊹ Espera un momento, estamos enviando su menu... 😔 ⊹ ⌟', m, {
+  await conn.reply(m.chat, '⌜ ⊹ Espera un momento, estamos enviando su menu...😸 ⊹ ⌟', m, {
     contextInfo: {
       externalAdReply: {
         title: botname,
-        body: "mientras otros fingen depresión nosotros fingimos ser felices 😔💔",
+        body: "🌌No importa lo que pase debes vivir vive y se feliz🌌",
         thumbnailUrl: 'https://files.catbox.moe/hha29x.jpg',
         sourceUrl: redes,
         mediaType: 1,
@@ -84,7 +81,7 @@ ${cmds.map(cmd => `│ ➯ ${cmd}`).join('\n')}
 
   // Enviar menú con video estilo gif
   await conn.sendMessage(m.chat, {
-    video: { url: 'https://files.catbox.moe/te059n.mp4', gifPlayback: true },
+    video: { url:'https://raw.githubusercontent.com/IrokzDal/uploads/main/1749581606606.mp4', gifPlayback: true },
     caption: menuText,
     gifPlayback: true,
     contextInfo: {
@@ -98,7 +95,7 @@ ${cmds.map(cmd => `│ ➯ ${cmd}`).join('\n')}
       forwardingScore: 999,
       externalAdReply: {
         title: botname,
-        body: "😓 </3",
+        body: "❤️🌌",
         thumbnailUrl: banner,
         sourceUrl: redes,
         mediaType: 1,
